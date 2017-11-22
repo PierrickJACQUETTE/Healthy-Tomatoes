@@ -22,6 +22,8 @@ def BDDfromCSV(csv_filename, table):
 				print("Error row : ", i)
 				pass
 			i = i+1
+			if(i%250 == 0):
+				print("Add rows : ", i)
 
 def BDDSearch(query):
 	es = bdd.BDD.get_instance();
@@ -34,6 +36,6 @@ def BDDSearchAll():
 	return BDDSearch(myquery);
 
 def BDDSearchCategorie(key, value):
-	myquery={"query": {"match": {key: value}}}
+	myquery={"_source": ["title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords"], "query" : {"match" : {key : value}}}
 	return BDDSearch(myquery);
 
