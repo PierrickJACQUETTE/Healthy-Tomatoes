@@ -10,5 +10,5 @@ class BDD:
 	@classmethod
 	def get_instance(cls):
 		if cls.INSTANCE is None:
-			cls.INSTANCE = Elasticsearch()
+			cls.INSTANCE = Elasticsearch([{'host': 'localhost', 'port': 9201}]);
 		return cls.INSTANCE
