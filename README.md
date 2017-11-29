@@ -3,7 +3,7 @@ Projet DataMining
 
 https://www.kaggle.com/tmdb/tmdb-movie-metadata
 
--> Calculer la variance et la moyenne de l'ensemble de train des vote_average
+-> Calculer la moyenne, l'écart type et la mediane de l'ensemble de train des vote_average
 	enfin de fixer la note limite entre success et echec
 
 -> Rajouter dans toutes les films dans TRAIN un champs SUCCESS : valant 0 ou 1 en fonction de sa note et de la note limite
