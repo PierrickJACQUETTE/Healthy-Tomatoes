@@ -1,8 +1,10 @@
 from elasticsearch import helpers, Elasticsearch
 
 index = "fouille"
-tableMovie = "movie"
-tableCredit = "credit"
+tableMovieTrain = "TrainMovie"
+tableMovieTest = "TestMovie"
+tableCreditTrain = "TrainCredit"
+tableCreditTest = "TestCredit"
 
 class BDD:
 	INSTANCE = None

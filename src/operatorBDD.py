@@ -2,13 +2,13 @@ from elasticsearch import helpers, Elasticsearch
 import BDD as bdd
 import csv
 
-def BDDfromCSV(csv_filename, table):
+def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 	es = bdd.BDD.get_instance();
 	try :
 		es.indices.delete(index=bdd.index)
 	except :
 		pass
-	
+
 	es.indices.create(index=bdd.index)
 	print("now indexing...")
 
@@ -17,7 +17,10 @@ def BDDfromCSV(csv_filename, table):
 		i = 2
 		for row in reader:
 			try :
-				es.index(index=bdd.index,doc_type=table,body=row)
+				if(i<numberSeparation):
+					es.index(index=bdd.index, doc_type=tableTrain, body=row)
+				else:
+					es.index(index=bdd.index, doc_type=tableTest, body=row)
 			except :
 				print("Error row : ", i)
 				pass
@@ -27,7 +30,7 @@ def BDDfromCSV(csv_filename, table):
 
 def BDDSearch(query):
 	es = bdd.BDD.get_instance();
-	res = es.search(index=bdd.index, body=query)
+	res = es.search(index=bdd.index, oc_type=bdd.tableMovieTrain, body=query)
 	print("Got %d Hits:" % res['hits']['total'])
 	return res;
 
@@ -38,4 +41,3 @@ def BDDSearchAll():
 def BDDSearchCategorie(key, value):
 	myquery={"_source": ["title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords"], "query" : {"match" : {key : value}}}
 	return BDDSearch(myquery);
-
