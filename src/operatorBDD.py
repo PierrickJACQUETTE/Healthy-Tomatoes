@@ -30,7 +30,6 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 					row['SUCCESS'] = newVote
 			except:
 				row['SUCCESS'] = -1
-			print(row['vote_average'])
 			try :
 				if(i<numberSeparation):
 					es.index(index=bdd.index, doc_type=tableTrain, body=row)
