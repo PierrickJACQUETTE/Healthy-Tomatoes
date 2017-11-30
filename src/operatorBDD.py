@@ -2,6 +2,8 @@ from elasticsearch import helpers, Elasticsearch
 import BDD as bdd
 import csv
 
+medianeVoteAverage = 5
+
 def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 	es = bdd.BDD.get_instance();
 	try :
@@ -16,6 +18,19 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 		reader = csv.DictReader(csvfile)
 		i = 2
 		for row in reader:
+			try:
+				vote = float(row['vote_average'])
+				if(vote > medianeVoteAverage and vote <= 10):
+					row['SUCCESS'] = 1
+				elif(vote <= 5 and vote >= 0):
+					row['SUCCESS'] = 0
+				else:
+					newVote = vote%10
+					row['vote_average'] = newVote
+					row['SUCCESS'] = newVote
+			except:
+				row['SUCCESS'] = -1
+			print(row['vote_average'])
 			try :
 				if(i<numberSeparation):
 					es.index(index=bdd.index, doc_type=tableTrain, body=row)
@@ -30,7 +45,7 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 
 def BDDSearch(query):
 	es = bdd.BDD.get_instance();
-	res = es.search(index=bdd.index, oc_type=bdd.tableMovieTrain, body=query)
+	res = es.search(index=bdd.index, doc_type=bdd.tableMovieTrain, body=query)
 	print("Got %d Hits:" % res['hits']['total'])
 	return res;
 
@@ -39,5 +54,5 @@ def BDDSearchAll():
 	return BDDSearch(myquery);
 
 def BDDSearchCategorie(key, value):
-	myquery={"_source": ["title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords"], "query" : {"match" : {key : value}}}
+	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords"], "query" : {"match" : {key : value}}}
 	return BDDSearch(myquery);

@@ -4,7 +4,7 @@ Projet DataMining
 https://www.kaggle.com/tmdb/tmdb-movie-metadata
 
 -> Calculer la moyenne, l'écart type et la mediane de l'ensemble de train des vote_average
-	enfin de fixer la note limite entre success et echec
+	enfin de fixer la note limite entre success et echec (modifier la note mediane de 5 pour l'instant)
 
 -> Definir les poids sur les colonnes
 
