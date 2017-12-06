@@ -6,7 +6,7 @@ import os, sys
 import pprint
 
 def init():
-    op.BDDfromCSV(sys.argv[1], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
+    op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
 
 def stat(a):
     d = []
@@ -20,12 +20,23 @@ def stat(a):
     print("nb supérieur à mediane : ", ot.ranking(tab, me))
 
 
+#a = op.BDDSearchCategorie("genres", "Action")
 # a = op.BDDSearchCategorie("title", "Avatar")
-# a = op.BDDSearchCategorie("genres", "Action")
-# a = op.BDDSearchCategorie("vote_average", "7.2")
-
+a = op.BDDSearchAll();
 # pp = pprint.PrettyPrinter(indent=6)
 # pp.pprint(a)
+d = []
+d.append(a)
 
-a = op.BDDSearchAll()
-stat(a)
+for i in range(a['hits']['total']):
+# for i in range(10):
+    tab = ot.concatData(d, a['hits']['total'], i)
+    # tab = ot.concatData(d, 10, i)
+    print(tab)
+    print("-------------------------")
+# print(real)
+
+#a = op.BDDSearchAll()
+#stat(a)
+
+# init()
