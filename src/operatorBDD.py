@@ -2,7 +2,7 @@ from elasticsearch import helpers, Elasticsearch
 import BDD as bdd
 import csv
 
-medianeVoteAverage = 5
+medianeVoteAverage = 6.2
 
 def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 	es = bdd.BDD.get_instance();
@@ -22,7 +22,7 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 				vote = float(row['vote_average'])
 				if(vote > medianeVoteAverage and vote <= 10):
 					row['SUCCESS'] = 1
-				elif(vote <= 5 and vote >= 0):
+				elif(vote <= medianeVoteAverage and vote >= 0):
 					row['SUCCESS'] = 0
 				else:
 					newVote = vote%10
@@ -42,7 +42,7 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 def BDDSearch(query):
 	es = bdd.BDD.get_instance();
 	res = es.search(index=bdd.index, doc_type=bdd.tableMovieTrain, body=query, size=4000)
-	print("Got %d Hits:" % res['hits']['total'])
+	# print("Got %d Hits:" % res['hits']['total'])
 	return res
 
 def BDDSearchAll():
