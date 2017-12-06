@@ -28,9 +28,6 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 					newVote = vote%10
 					row['vote_average'] = newVote
 					row['SUCCESS'] = newVote
-			except:
-				row['SUCCESS'] = -1
-			try :
 				if(i<numberSeparation):
 					es.index(index=bdd.index, doc_type=tableTrain, body=row)
 				else:
@@ -44,9 +41,9 @@ def BDDfromCSV(csv_filename, tableTrain, tableTest, numberSeparation):
 
 def BDDSearch(query):
 	es = bdd.BDD.get_instance();
-	res = es.search(index=bdd.index, doc_type=bdd.tableMovieTrain, body=query)
+	res = es.search(index=bdd.index, doc_type=bdd.tableMovieTrain, body=query, size=4000)
 	print("Got %d Hits:" % res['hits']['total'])
-	return res;
+	return res
 
 def BDDSearchAll():
 	myquery={"query": {"match_all": {}}}
