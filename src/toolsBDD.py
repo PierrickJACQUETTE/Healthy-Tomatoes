@@ -1,5 +1,10 @@
 import numpy as np
 import ast
+from sklearn.feature_extraction.text import TfidfVectorizer
+from scipy.stats import ttest_ind
+
+def getSize(a):
+    return a['hits']['total']
 
 #return a numpy array : list
 def getAll_VoteAverage(d, si) :
@@ -22,7 +27,7 @@ def ranking(t, x) :
 
 def concatData(d, si, i) :
     s = d[0].get('hits').get('hits')[i].get('_source').get('SUCCESS')
-    print(d[0].get('hits').get('hits')[i].get('_source').get('title'))
+    # print(d[0].get('hits').get('hits')[i].get('_source').get('title'))
     return (s, getCast(d, si, i) + getData(d, si, i, 'genres') + getData(d, si, i, 'keywords') + getData(d, si, i, 'production_companies') + getReal(d, si, i))
 
 def getData(d, si, a, typ) :
@@ -52,3 +57,26 @@ def getReal(d, si, a) :
         if (j.get('job') == "Director") and (j.get('name') != None) :
             return j.get('name')
     return "";
+
+#liste of tuple
+def createList(d, si) :
+    l = []
+    for i in range(si):
+        l.append(concatData(d, si, i))
+    return l
+
+#return tf-idf + vector
+def transform(pairs):
+    tfidf = TfidfVectorizer(min_df=0.01, stop_words="english")
+    types, text = zip(*pairs)
+    matrice = tfidf.fit_transform(text)
+    vector = np.array(types)
+    return matrice,vector, tfidf
+
+#if t < 0 -> success else clear
+def test_success(X, Y, index):
+    X = X.toarray()
+    success = X[Y == 1, index]
+    failure = X[Y == 0, index]
+    t, p = ttest_ind(success, failure)
+    return t, p
