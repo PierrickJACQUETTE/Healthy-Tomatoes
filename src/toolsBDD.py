@@ -73,6 +73,13 @@ def transform(pairs):
     vector = np.array(types)
     return matrice,vector, tfidf
 
+def getDict(tfidf) :
+    return tfidf.vocabulary_
+
+#return an index for tfidf, None if doesn't exist
+def getTest(dic, s):
+    return dic.get(s)
+
 #if t < 0 -> success else clear
 def test_success(X, Y, index):
     X = X.toarray()

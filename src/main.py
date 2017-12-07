@@ -32,9 +32,31 @@ d.append(a)
 l = to.createList(d, s)
 print("List done")
 
-mat, vec, tfifdf = to.transform(l)
+mat, vec, tfidf = to.transform(l)
 print("matrice + vector done")
 
-dic = tfifdf.vocabulary_
-test_freeman = dic.get('freeman')
-print(to.test_success(mat, vec, test_freeman))
+dic = to.getDict(tfidf)
+
+test = to.getTest(dic, 'freeman')
+if(test == None) :
+    print("test is not in data")
+else :
+    print(to.test_success(mat, vec, test))
+
+test = to.getTest(dic, 'fromage')
+if(test == None) :
+    print("test is not in data")
+else :
+    print(to.test_success(mat, vec, test))
+
+test = to.getTest(dic, 'action')
+if(test == None) :
+    print("test is not in data")
+else :
+    print(to.test_success(mat, vec, test))
+
+test = to.getTest(dic, 'cameron')
+if(test == None) :
+    print("test is not in data")
+else :
+    print(to.test_success(mat, vec, test))
