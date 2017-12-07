@@ -3,8 +3,6 @@ Projet DataMining
 
 https://www.kaggle.com/tmdb/tmdb-movie-metadata
 
--> ajouter une fonction permettant de recuperer toute la base de test et une autre pour juste une ligne(donne en argument, si elle existe pas NONE)
-
 -> Definir les poids sur les colonnes
 
 -> Regarder pour mot de chaque champs du film f appartenant a l'ensemble TEST

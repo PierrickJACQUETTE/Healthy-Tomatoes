@@ -42,16 +42,25 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 			if(i%250 == 0):
 				print("Add rows : ", i)
 
-def BDDSearch(query):
+def BDDSearch(query, table):
 	es = bdd.BDD.get_instance();
-	res = es.search(index=bdd.index, doc_type=bdd.tableMovieTrain, body=query, size=4000)
+	res = es.search(index=bdd.index, doc_type=table, body=query, size=4000)
 	return res
 
 def BDDSearchAll():
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"]}
 	#myquery={"query":{"match_all":{}}}
-	return BDDSearch(myquery);
+	return BDDSearch(myquery, bdd.tableMovieTrain);
 
 def BDDSearchCategorie(key, value):
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"], "query" : {"match" : {key : value}}}
-	return BDDSearch(myquery);
+	return BDDSearch(myquery, bdd.tableMovieTrain);
+
+def BDDSearchAllTest():
+	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"]}
+	#myquery={"query":{"match_all":{}}}
+	return BDDSearch(myquery, bdd.tableMovieTest);
+
+def BDDSearchCategorieTest(key, value):
+	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"], "query" : {"match" : {key : value}}}
+	return BDDSearch(myquery, bdd.tableMovieTest);
