@@ -44,7 +44,7 @@ def getCast(d, si, a) :
     text = ""
     # for i in range(si) :
     c = ast.literal_eval(d[0].get('hits').get('hits')[a].get('_source').get('cast'))
-    for j in c[:3] :
+    for j in c[:6] :
         if(j.get('name') != None) :
             text += j.get('name')+", "
     return text
@@ -67,7 +67,7 @@ def createList(d, si) :
 
 #return tf-idf + vector
 def transform(pairs):
-    tfidf = TfidfVectorizer(min_df=0.01, stop_words="english")
+    tfidf = TfidfVectorizer(min_df=0.005,stop_words="english")
     types, text = zip(*pairs)
     matrice = tfidf.fit_transform(text)
     vector = np.array(types)
@@ -87,3 +87,16 @@ def test_success(X, Y, index):
     failure = X[Y == 0, index]
     t, p = ttest_ind(success, failure)
     return t, p
+
+#if t < 0 -> success else clear
+def test_success2(X, Y, index):
+    X = X.toarray()
+    success = X[Y == 1, index]
+    failure = X[Y == 0, index]
+    t, p = ttest_ind(success, failure)
+    if p > 0.1 :
+        return 0
+    elif t < 0 :
+        return -1
+    else :
+        return 1

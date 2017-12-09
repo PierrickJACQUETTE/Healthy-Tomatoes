@@ -16,9 +16,6 @@ def stat(a):
     print("nb supérieur à moyenne : ", to.ranking(tab, mo))
     print("nb supérieur à mediane : ", to.ranking(tab, me))
 
-
-#a = op.BDDSearchCategorie("genres", "Action")
-# a = op.BDDSearchCategorie("title", "Avatar")
 a = op.BDDSearchAll();
 s = to.getSize(a)
 # pp = pprint.PrettyPrinter(indent=6)
@@ -30,33 +27,38 @@ d.append(a)
 # stat(a)
 
 l = to.createList(d, s)
-print("List done")
 
 mat, vec, tfidf = to.transform(l)
-print("matrice + vector done")
 
 dic = to.getDict(tfidf)
 
-test = to.getTest(dic, 'freeman')
-if(test == None) :
-    print("test is not in data")
-else :
-    print(to.test_success(mat, vec, test))
+test = op.BDDSearchAllTest()
+st = to.getSize(test)
 
-test = to.getTest(dic, 'fromage')
-if(test == None) :
-    print("test is not in data")
-else :
-    print(to.test_success(mat, vec, test))
+dt = []
+dt.append(test)
 
-test = to.getTest(dic, 'action')
-if(test == None) :
-    print("test is not in data")
-else :
-    print(to.test_success(mat, vec, test))
+lt = to.createList(dt, st)
 
-test = to.getTest(dic, 'cameron')
-if(test == None) :
-    print("test is not in data")
-else :
-    print(to.test_success(mat, vec, test))
+true = fail = 0
+
+for (i,j) in lt :
+    res = per = 0;
+    sp = j.split()
+    for k in sp :
+        k = k.replace(',', '').lower()
+        bob = to.getTest(dic, k)
+        if(bob != None) :
+            res += to.test_success2(mat, vec, bob)
+        else :
+            per += 1
+    print(i, res, per)
+    if(i == 1 and res >= 0) :
+        true += 1
+    elif (i == 0 and res < 0) :
+        true += 1
+    else :
+        fail += 1
+
+print("OK : ", true)
+print("KO : ", fail)
