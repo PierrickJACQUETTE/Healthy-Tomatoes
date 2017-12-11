@@ -12,6 +12,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import average_precision_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 def init():
     op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
@@ -78,71 +80,68 @@ def find_best_k_for_kneighbors(X, y, n_splits=5):
 #print(find_best_k_for_kneighbors(mat, vec))
 
 def accuraccy_test(X, y, tfidf, k=77):
-	a = op.BDDSearchAllTest();
-	s = to.getSize(a)
-	print(s)
-	d = []
-	d.append(a)
-	l = to.createList(d, s)
-	mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
-	knn = KNeighborsClassifier(k)
-	knn.fit(X, y)
-	score = knn.score(mat, vec)
+    a = op.BDDSearchAllTest();
+    s = to.getSize(a)
+    print(s)
+    d = []
+    d.append(a)
+    l = to.createList(d, s)
+    mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
+    knn = KNeighborsClassifier(k)
+    knn.fit(X, y)
+    score = knn.score(mat, vec)
+    return score
 
-	return score
-
-print(accuraccy_test(mat, vec, tfidf))
-
-def tree(X, y, tfidf):
-	tree_score = generic_tree_score(X, y, tfidf, DecisionTreeClassifier)
-	print("tree score :", tree_score)
-	forest_score = generic_tree_score(X, y, tfidf, RandomForestClassifier)
-    print("forest score :", forest_score)
+#print(accuraccy_test(mat, vec, tfidf))
 
 def generic_tree(X, y, cls):
-	X_train, X_test, y_train, y_test = train_test_split(X, y)
-	n_splits = 5
-	skf = StratifiedKFold(n_splits=n_splits)
-	best_min_samples_split = 2
-	best_max_depth = None
-	best_score = 0
-	max_depths = range(1, 20+1)
-	max_depths.append(100)
-	max_depths.append(None)
-	for min_samples_split in range(2, 20+1):
-		for max_depth in max_depths:
-			score_sum = 0.0
-			for train_idx, test_idx in skf.split(X_train, y_train):
-				X_sub_train, X_sub_test = X[train_idx], X[test_idx]
-				y_sub_train, y_sub_test = y[train_idx], y[test_idx]
-				model = cls(min_samples_split=min_samples_split, max_depth=max_depth)
-				model.fit(X_sub_train, y_sub_train)
-				score = model.score(X_sub_test, y_sub_test)
-				score_sum += score
-				score_average = score_sum / n_splits
-			if score_average > best_score:
-				best_score = score_average
-				best_min_samples_split = min_samples_split
-				best_max_depth = max_depth
-
-	return best_min, best_max
+    X_train, X_test, y_train, y_test = train_test_split(X, y)
+    n_splits = 5
+    skf = StratifiedKFold(n_splits=n_splits)
+    best_min_samples_split = 2
+    best_max_depth = None
+    best_score = 0
+    max_depths = list(range(1, 20+1))
+    max_depths.append(100)
+    max_depths.append(None)
+    for min_samples_split in range(2, 20+1):
+        for max_depth in max_depths:
+            score_sum = 0.0
+            for train_idx, test_idx in skf.split(X_train, y_train):
+                X_sub_train, X_sub_test = X[train_idx], X[test_idx]
+                y_sub_train, y_sub_test = y[train_idx], y[test_idx]
+                model = cls(min_samples_split=min_samples_split, max_depth=max_depth)
+                model.fit(X_sub_train, y_sub_train)
+                score = model.score(X_sub_test, y_sub_test)
+                score_sum += score
+                score_average = score_sum / n_splits
+            if score_average > best_score:
+                best_score = score_average
+                best_min_samples_split = min_samples_split
+                best_max_depth = max_depth
+    return best_min_samples_split, best_max_depth
 
 def generic_tree_score(X, y, tfidf, cls):
-	a = op.BDDSearchAllTest();
-	s = to.getSize(a)
-	d = []
-	d.append(a)
-	l = to.createList(d, s)
-	mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
-	best_min, best_max = generic_tree(X, y, cls)
-	m = cls(min_samples_split=best_min, max_depth=best_max)
-	m.fit(X, y)
-	score = m.score(mat, vec)
+    a = op.BDDSearchAllTest();
+    s = to.getSize(a)
+    d = []
+    d.append(a)
+    l = to.createList(d, s)
+    mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
+    best_min, best_max = generic_tree(X, y, cls)
+    m = cls(min_samples_split=best_min, max_depth=best_max)
+    m.fit(X, y)
+    score = m.score(mat, vec)
     return score
-    
-tree(mat, vec, tfidf)
 
 
+def algoTree(X, y, tfidf):
+    tree_score = generic_tree_score(X, y, tfidf, DecisionTreeClassifier)
+    print("tree score :", tree_score)
+    forest_score = generic_tree_score(X, y, tfidf, RandomForestClassifier)
+    print("forest score :", forest_score)
+
+algoTree(mat, vec, tfidf)
 
 
 test = op.BDDSearchAllTest()

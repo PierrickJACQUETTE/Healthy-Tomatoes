@@ -39,7 +39,7 @@ def getData(d, si, a, typ) :
             text += j.get('name')+", "
     return text
 
-#return 3 acteurs
+#return 6 acteurs
 def getCast(d, si, a) :
     text = ""
     # for i in range(si) :
