@@ -21,21 +21,20 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 		i = 2
 		for row, row2 in zip(readerMovie, readerCredit) :
 			try :
-				l = []
-				# vote = float(row['vote_average'])
-				# if(vote > medianeVoteAverage and vote <= 10):
-				# 	row['SUCCESS'] = 1
-				# elif(vote <= medianeVoteAverage and vote >= 0):
-				# 	row['SUCCESS'] = 0
-				# else:
-				# 	newVote = vote%10
-				# 	row['vote_average'] = newVote
-				# 	row['SUCCESS'] = newVote
-				# rowTotal = {**row, **row2}
-				# if(i<numberSeparation):
-				# 	es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
-				# else:
-				# 	es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
+				vote = float(row['vote_average'])
+				if(vote > medianeVoteAverage and vote <= 10):
+					row['SUCCESS'] = 1
+				elif(vote <= medianeVoteAverage and vote >= 0):
+					row['SUCCESS'] = 0
+				else:
+					newVote = vote%10
+					row['vote_average'] = newVote
+					row['SUCCESS'] = newVote
+				rowTotal = {**row, **row2}
+				if(i<numberSeparation):
+					es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
+				else:
+					es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
 			except :
 				print("Error row : ", i)
 				pass
