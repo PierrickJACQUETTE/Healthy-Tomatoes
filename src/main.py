@@ -27,31 +27,24 @@ def stat(a):
 def get_train_test_sets(X, y):
     return train_test_split(X, y)
 
-init()
+# init()
 
-# a = op.BDDSearchAll();
-# s = to.getSize(a)
+a = op.BDDSearchAll();
+s = to.getSize(a)
 # # # pp = pprint.PrettyPrinter(indent=6)
 # # # pp.pprint(a)
-# d = []
-# d.append(a)
+d = []
+d.append(a)
 # #
 # #init()
 # # # stat(a)
 # #
-# l = to.createList(d, s)
+l = to.createList(d, s)
 # #
-# mat, vec, tfidf = to.transform(l)
+mat, vec, tfidf = to.transform(l)
 #
-# dic = to.getDict(tfidf)
+dic = to.getDict(tfidf)
 #
-# test = op.BDDSearchAllTest()
-# st = to.getSize(test)
-#
-# dt = []
-# dt.append(test)
-#
-# lt = to.createList(dt, st)
 
 def find_best_k_for_kneighbors(X, y, n_splits=5):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
@@ -95,28 +88,39 @@ def accuraccy_test(X, y, tfidf, k=77):
 	knn = KNeighborsClassifier(k)
 	knn.fit(X, y)
 	score = knn.score(mat, vec)
+
 	return score
 
 print(accuraccy_test(mat, vec, tfidf))
-# true = fail = 0
-#
-# for (i,j) in lt :
-#     res = per = 0;
-#     sp = j.split()
-#     for k in sp :
-#         k = k.replace(',', '').lower()
-#         bob = to.getTest(dic, k)
-#         if(bob != None) :
-#             res += to.test_success2(mat, vec, bob)
-#         else :
-#             per += 1
-#     print(i, res, per)
-#     if(i == 1 and res >= 0) :
-#         true += 1
-#     elif (i == 0 and res < 0) :
-#         true += 1
-#     else :
-#         fail += 1
-#
-# print("OK : ", true)
-# print("KO : ", fail)
+
+test = op.BDDSearchAllTest()
+st = to.getSize(test)
+
+dt = []
+dt.append(test)
+
+lt = to.createList(dt, st)
+
+def naiveBayes(lt, dic, mat, vec) :
+    true = fail = 0
+
+    for (i,j) in lt :
+        res = per = 0;
+        sp = j.split()
+        for k in sp :
+            k = k.replace(',', '').lower()
+            bob = to.getTest(dic, k)
+            if(bob != None) :
+                res += to.test_success2(mat, vec, bob)
+            else :
+                per += 1
+        print(i, res, per)
+        if(i == 1 and res >= 0) :
+            true += 1
+        elif (i == 0 and res < 0) :
+            true += 1
+        else :
+            fail += 1
+
+    print("OK : ", true)
+    print("KO : ", fail)
