@@ -27,19 +27,21 @@ def stat(a):
 def get_train_test_sets(X, y):
     return train_test_split(X, y)
 
-a = op.BDDSearchAll();
-s = to.getSize(a)
-# # pp = pprint.PrettyPrinter(indent=6)
-# # pp.pprint(a)
-d = []
-d.append(a)
-#
-# # init()
-# # stat(a)
-#
-l = to.createList(d, s)
-#
-mat, vec, tfidf = to.transform(l)
+init()
+
+# a = op.BDDSearchAll();
+# s = to.getSize(a)
+# # # pp = pprint.PrettyPrinter(indent=6)
+# # # pp.pprint(a)
+# d = []
+# d.append(a)
+# #
+# #init()
+# # # stat(a)
+# #
+# l = to.createList(d, s)
+# #
+# mat, vec, tfidf = to.transform(l)
 #
 # dic = to.getDict(tfidf)
 #
@@ -73,21 +75,29 @@ def find_best_k_for_kneighbors(X, y, n_splits=5):
 
         score_sum /= n_splits
 
-        # print(best_score, " - With K ", k, " the score is ", score_sum)
+        print(best_score, " - With K ", k, " the score is ", score_sum)
         if score_sum > best_score:
             best_score = score_sum
             best_k = k
 
-    knn = KNeighborsClassifier(best_k)
-    knn.fit(X_train, y_train)
-    score = knn.score(X_test, y_test)
-
-    # print("Best K is", best_k, "with a score of", score)
-
     return best_k
 
-print(find_best_k_for_kneighbors(mat, vec))
+#print(find_best_k_for_kneighbors(mat, vec))
 
+def accuraccy_test(X, y, tfidf, k=77):
+	a = op.BDDSearchAllTest();
+	s = to.getSize(a)
+	print(s)
+	d = []
+	d.append(a)
+	l = to.createList(d, s)
+	mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
+	knn = KNeighborsClassifier(k)
+	knn.fit(X, y)
+	score = knn.score(mat, vec)
+	return score
+
+print(accuraccy_test(mat, vec, tfidf))
 # true = fail = 0
 #
 # for (i,j) in lt :

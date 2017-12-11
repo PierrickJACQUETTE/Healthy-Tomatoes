@@ -66,8 +66,8 @@ def createList(d, si) :
     return l
 
 #return tf-idf + vector
-def transform(pairs):
-    tfidf = TfidfVectorizer(min_df=0.005,stop_words="english")
+def transform(pairs, vocabulary=None):
+    tfidf = TfidfVectorizer(min_df=0.005,stop_words="english",vocabulary=vocabulary)
     types, text = zip(*pairs)
     matrice = tfidf.fit_transform(text)
     vector = np.array(types)

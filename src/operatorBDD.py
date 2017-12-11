@@ -15,26 +15,27 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 	es.indices.create(index=bdd.index)
 	print("now indexing...")
 
-	with open(csv_filenameMovie) as csvfileMovie, open(csv_filenameCredit) as csvfileCredit :
+	with open(csv_filenameMovie, errors='replace') as csvfileMovie, open(csv_filenameCredit) as csvfileCredit :
 		readerMovie = csv.DictReader(csvfileMovie)
 		readerCredit = csv.DictReader(csvfileCredit)
 		i = 2
 		for row, row2 in zip(readerMovie, readerCredit) :
 			try :
-				vote = float(row['vote_average'])
-				if(vote > medianeVoteAverage and vote <= 10):
-					row['SUCCESS'] = 1
-				elif(vote <= medianeVoteAverage and vote >= 0):
-					row['SUCCESS'] = 0
-				else:
-					newVote = vote%10
-					row['vote_average'] = newVote
-					row['SUCCESS'] = newVote
-				rowTotal = {**row, **row2}
-				if(i<numberSeparation):
-					es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
-				else:
-					es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
+				l = []
+				# vote = float(row['vote_average'])
+				# if(vote > medianeVoteAverage and vote <= 10):
+				# 	row['SUCCESS'] = 1
+				# elif(vote <= medianeVoteAverage and vote >= 0):
+				# 	row['SUCCESS'] = 0
+				# else:
+				# 	newVote = vote%10
+				# 	row['vote_average'] = newVote
+				# 	row['SUCCESS'] = newVote
+				# rowTotal = {**row, **row2}
+				# if(i<numberSeparation):
+				# 	es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
+				# else:
+				# 	es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
 			except :
 				print("Error row : ", i)
 				pass
