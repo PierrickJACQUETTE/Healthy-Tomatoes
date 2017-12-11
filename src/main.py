@@ -7,7 +7,7 @@ import os, sys
 import pprint
 
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import silhouette_score, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
@@ -63,21 +63,19 @@ def find_best_k_for_kneighbors(X, y, n_splits=5):
             X_subtrain, X_subtest = X[train_idx], X[test_idx]
             y_subtrain, y_subtest = y[train_idx], y[test_idx]
 
-            model = KNeighborsClassifier(k).fit(X_subtrain, y_subtrain)
+            model = KNeighborsClassifier(k, n_jobs=-1).fit(X_subtrain, y_subtrain)
             score = model.score(X_subtest, y_subtest)
 
             score_sum += score
 
         score_sum /= n_splits
-
-        print(best_score, " - With K ", k, " the score is ", score_sum)
         if score_sum > best_score:
             best_score = score_sum
             best_k = k
 
     return best_k
 
-#print(find_best_k_for_kneighbors(mat, vec))
+x = find_best_k_for_kneighbors(mat, vec)
 
 def accuraccy_test(X, y, tfidf, k=77):
     a = op.BDDSearchAllTest();
@@ -87,12 +85,12 @@ def accuraccy_test(X, y, tfidf, k=77):
     d.append(a)
     l = to.createList(d, s)
     mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
-    knn = KNeighborsClassifier(k)
+    knn = KNeighborsClassifier(k, n_jobs=-1)
     knn.fit(X, y)
     score = knn.score(mat, vec)
     return score
 
-#print(accuraccy_test(mat, vec, tfidf))
+print(accuraccy_test(mat, vec, tfidf, x))
 
 def generic_tree(X, y, cls):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
@@ -110,7 +108,7 @@ def generic_tree(X, y, cls):
             for train_idx, test_idx in skf.split(X_train, y_train):
                 X_sub_train, X_sub_test = X[train_idx], X[test_idx]
                 y_sub_train, y_sub_test = y[train_idx], y[test_idx]
-                model = cls(min_samples_split=min_samples_split, max_depth=max_depth)
+                model = cls(min_samples_split=min_samples_split, max_depth=max_depth, n_jobs=-1)
                 model.fit(X_sub_train, y_sub_train)
                 score = model.score(X_sub_test, y_sub_test)
                 score_sum += score
@@ -141,7 +139,7 @@ def algoTree(X, y, tfidf):
     forest_score = generic_tree_score(X, y, tfidf, RandomForestClassifier)
     print("forest score :", forest_score)
 
-algoTree(mat, vec, tfidf)
+#algoTree(mat, vec, tfidf)
 
 
 test = op.BDDSearchAllTest()
