@@ -5,6 +5,7 @@ import csv
 
 medianeVoteAverage = 6.2
 
+#permet de stocker dans elasticsearch les donnees dans fichiers
 def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, numberSeparation):
 	es = bdd.BDD.get_instance();
 	try :
@@ -42,25 +43,30 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 			if(i%250 == 0):
 				print("Add rows : ", i)
 
+#cherche dans la table, la requete et renvoi le resultat
 def BDDSearch(query, table):
 	es = bdd.BDD.get_instance();
 	res = es.search(index=bdd.index, doc_type=table, body=query, size=4000)
 	return res
 
+#cherche dans la table train, tout les documents
 def BDDSearchAll():
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"]}
 	#myquery={"query":{"match_all":{}}}
 	return BDDSearch(myquery, bdd.tableMovieTrain);
 
+#cherche dans la table train, tout les documents ayant tel key et value
 def BDDSearchCategorie(key, value):
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"], "query" : {"match" : {key : value}}}
 	return BDDSearch(myquery, bdd.tableMovieTrain);
 
+#cherche dans la table test, tout les documents
 def BDDSearchAllTest():
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"]}
 	#myquery={"query":{"match_all":{}}}
 	return BDDSearch(myquery, bdd.tableMovieTest);
 
+#cherche dans la table test, tout les documents ayant tel key et value
 def BDDSearchCategorieTest(key, value):
 	myquery={"_source": ["SUCCESS", "title", "vote_average", "vote_count", "budget", "genres", "production_companies", "keywords", "cast", "crew"], "query" : {"match" : {key : value}}}
 	return BDDSearch(myquery, bdd.tableMovieTest);

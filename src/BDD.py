@@ -6,6 +6,7 @@ tableMovieTest = "TestMovie"
 tableCreditTrain = "TrainCredit"
 tableCreditTest = "TestCredit"
 
+#permet d'avoir une seule instance de la base
 class BDD:
 	INSTANCE = None
 

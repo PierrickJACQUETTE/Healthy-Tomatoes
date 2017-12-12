@@ -7,21 +7,25 @@ import numpy as np
 from scipy.stats import ttest_ind
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+#permet de charger dans la base de donnee
 def init():
     op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
 
+#return les lignes de la base, le nombre et un dict pour ensemble de train
 def getEssentialTrain() :
     a = op.BDDSearchAll();
     s = getSize(a)
     d = [a]
     return a,s,d
 
+#return les lignes de la base, le nombre et un dict pour ensemble de test
 def getEssentialTest():
     a = op.BDDSearchAllTest()
     s = getSize(a)
     d = [a]
     return a,s,d
 
+#permet de savoir le nombre de hits
 def getSize(a):
     return a['hits']['total']
 
@@ -44,10 +48,12 @@ def ranking(t, x) :
             c += 1
     return c
 
+#returns les valeurs concatenes
 def concatData(d, si, i) :
     s = d[0].get('hits').get('hits')[i].get('_source').get('SUCCESS')
     return (s, getCast(d, si, i) + getData(d, si, i, 'genres') + getData(d, si, i, 'keywords') + getData(d, si, i, 'production_companies') + getReal(d, si, i))
 
+#return les valeurs concatenes dans une chaine de char
 def getData(d, si, a, typ) :
     text = ""
     c = ast.literal_eval(d[0].get('hits').get('hits')[a].get('_source').get(typ))
@@ -88,6 +94,7 @@ def transform(pairs, vocabulary=None):
     vector = np.array(types)
     return matrice,vector, tfidf
 
+#permet de connaitre les labels dune tfidf
 def getDict(tfidf) :
     return tfidf.vocabulary_
 
@@ -125,5 +132,6 @@ def stat(a):
     print("nb supérieur à moyenne : ", ranking(tab, mo))
     print("nb supérieur à mediane : ", ranking(tab, me))
 
+#permet de creer faire des separation pour la validation croisee
 def get_train_test_sets(X, y):
     return train_test_split(X, y)
