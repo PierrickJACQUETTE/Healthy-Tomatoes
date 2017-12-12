@@ -1,3 +1,7 @@
+## \mainpage healthy-tomatoes ocumentation
+#Nous vous présentons le rapport du travail effectué dans le cadre du projet de Fouille de Données de master 2. Le projet est la réalisation d’un système de prédictions de la réussite d’un film basé sur son contenu. 
+#
+
 import algo as al
 import BDD as bdd
 import toolsBDD as to

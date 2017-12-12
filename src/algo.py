@@ -13,7 +13,10 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 ##permet de savoir si c'est un echec ou succes
-#@param lt texte de test
+#@param lt list de tuples contenant (success, puis liste de mot)
+#@param dic dictionnaire de la tfdif
+#@param mat resultat de la tfidf
+#@param vec vecteur de la tfidf
 #
 def naiveBayes(lt, dic, mat, vec) :
     true = fail = 0
@@ -39,7 +42,12 @@ def naiveBayes(lt, dic, mat, vec) :
     print("OK : ", true)
     print("KO : ", fail)
 
-#permet de savoir le meilleur k possible
+##permet de savoir le meilleur k possible
+#@param X resultat de la tfidf
+#@param y vecteur de la tfidf
+#@param n_splits, combien de sous ensemble pour la validation croisee
+#@return best k
+#
 def find_best_k_for_kneighbors(X, y, n_splits=5):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
 
@@ -67,7 +75,12 @@ def find_best_k_for_kneighbors(X, y, n_splits=5):
 
     return best_k
 
-#permet de savoir si c'est un echec ou succes
+##permet de savoir si c'est un echec ou succes
+#@param X resultat de la tfidf
+#@param y vecteur de la tfidf
+#@param k nombre de k voisin
+#@return score en pourcentage sur l'ensemble de test
+#
 def accuraccy_test(X, y, tfidf, l, k=77):
     mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
     knn = KNeighborsClassifier(k, n_jobs=-1)
@@ -75,7 +88,12 @@ def accuraccy_test(X, y, tfidf, l, k=77):
     score = knn.score(mat, vec)
     return score*100
 
-#permet de savoir les meilleurs parametres
+##permet de savoir les meilleurs parametres
+#@param X resultat de la tfidf
+#@param y vecteur de la tfidf
+#@param cls fonction
+#@return best_min_samples_split,best_max_depth parametres optimaux
+#
 def generic_tree(X, y, cls):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
     n_splits = 5
@@ -103,7 +121,12 @@ def generic_tree(X, y, cls):
                 best_max_depth = max_depth
     return best_min_samples_split, best_max_depth
 
-#permet de savoir si c'est un echec ou succes
+##permet de savoir si c'est un echec ou succes
+#@param X resultat de la tfidf
+#@param y vecteur de la tfidf
+#@param l list de tuples contenant (success, puis liste de mot)
+#@param tfdif
+#@return score en  pourcentage
 def generic_tree_score(X, y, tfidf, l, cls):
     mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
     best_min, best_max = generic_tree(X, y, cls)
@@ -112,7 +135,11 @@ def generic_tree_score(X, y, tfidf, l, cls):
     score = m.score(mat, vec)
     return score
 
-#permet de lancer pour les deux arbres
+##permet de lancer pour les deux arbres
+#@param X resultat de la tfidf
+#@param y vecteur de la tfidf
+#@param l list de tuples contenant (success, puis liste de mot)
+#@param tfdif
 def algoTree(X, y, tfidf, l):
     tree_score = generic_tree_score(X, y, tfidf, l, DecisionTreeClassifier)
     print("tree score :", tree_score*100, "%")
