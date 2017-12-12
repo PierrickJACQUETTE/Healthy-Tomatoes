@@ -21,7 +21,7 @@ al.naiveBayes(lt, dic, mat, vec)
 
 print("K plus proche")
 x = al.find_best_k_for_kneighbors(mat, vec)
-print(al.accuraccy_test(mat, vec, tfidf, x), "%")
+print(al.accuraccy_test(mat, vec, tfidf, lt, x), "%")
 
 print("Arbre de decision / Random Forest")
-al.algoTree(mat, vec, tfidf)
+al.algoTree(mat, vec, tfidf, lt)

@@ -12,7 +12,9 @@ from sklearn.metrics import average_precision_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-#permet de savoir si c'est un echec ou succes
+##permet de savoir si c'est un echec ou succes
+#@param lt texte de test
+#
 def naiveBayes(lt, dic, mat, vec) :
     true = fail = 0
 
@@ -66,13 +68,7 @@ def find_best_k_for_kneighbors(X, y, n_splits=5):
     return best_k
 
 #permet de savoir si c'est un echec ou succes
-def accuraccy_test(X, y, tfidf, k=77):
-    a = op.BDDSearchAllTest();
-    s = to.getSize(a)
-    print(s)
-    d = []
-    d.append(a)
-    l = to.createList(d, s)
+def accuraccy_test(X, y, tfidf, l, k=77):
     mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
     knn = KNeighborsClassifier(k, n_jobs=-1)
     knn.fit(X, y)
@@ -108,12 +104,7 @@ def generic_tree(X, y, cls):
     return best_min_samples_split, best_max_depth
 
 #permet de savoir si c'est un echec ou succes
-def generic_tree_score(X, y, tfidf, cls):
-    a = op.BDDSearchAllTest();
-    s = to.getSize(a)
-    d = []
-    d.append(a)
-    l = to.createList(d, s)
+def generic_tree_score(X, y, tfidf, l, cls):
     mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
     best_min, best_max = generic_tree(X, y, cls)
     m = cls(min_samples_split=best_min, max_depth=best_max)
@@ -122,8 +113,8 @@ def generic_tree_score(X, y, tfidf, cls):
     return score
 
 #permet de lancer pour les deux arbres
-def algoTree(X, y, tfidf):
-    tree_score = generic_tree_score(X, y, tfidf, DecisionTreeClassifier)
+def algoTree(X, y, tfidf, l):
+    tree_score = generic_tree_score(X, y, tfidf, l, DecisionTreeClassifier)
     print("tree score :", tree_score*100, "%")
-    forest_score = generic_tree_score(X, y, tfidf, RandomForestClassifier)
+    forest_score = generic_tree_score(X, y, tfidf, l, RandomForestClassifier)
     print("forest score :", forest_score*100, "%")
