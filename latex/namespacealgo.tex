@@ -53,7 +53,8 @@ score en pourcentage sur l'ensemble de test
 \item[{}]{X, }
 \item[{}]{y, }
 \item[{}]{tfidf, }
-\item[{}]{l}
+\item[{}]{l, }
+\item[{}]{show = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7}
 
@@ -68,12 +69,15 @@ permet de lancer pour les deux arbres
 \hline
 {\em l} & list de tuples contenant (success, puis liste de mot) \\
 \hline
+{\em show} & savoir si l'on dessine le graph \\
+\hline
 {\em tfdif} & \\
 \hline
 \end{DoxyParams}
 
 
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -88,7 +92,8 @@ Voici le graphe d'appel pour cette fonction \-:\nopagebreak
 \begin{DoxyParamCaption}
 \item[{}]{X, }
 \item[{}]{y, }
-\item[{}]{n\-\_\-splits = {\ttfamily 5}}
+\item[{}]{n\-\_\-splits = {\ttfamily 5}, }
+\item[{}]{show = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_a70c4b2737389dbfb07be3b39a8cf8e9b}
 
@@ -103,6 +108,8 @@ permet de savoir le meilleur k possible
 \hline
 {\em n\-\_\-splits,combien} & de sous ensemble pour la validation croisee \\
 \hline
+{\em show} & savoir si l'on dessine le graph \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 best k 
@@ -113,7 +120,8 @@ best k
 \begin{DoxyParamCaption}
 \item[{}]{X, }
 \item[{}]{y, }
-\item[{}]{cls}
+\item[{}]{cls, }
+\item[{}]{show}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}
 
@@ -128,13 +136,16 @@ permet de savoir les meilleurs parametres
 \hline
 {\em cls} & fonction \\
 \hline
+{\em show} & savoir si l'on dessine le graph \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 best\-\_\-min\-\_\-samples\-\_\-split,best\-\_\-max\-\_\-depth parametres optimaux 
 \end{DoxyReturn}
 
 
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -174,7 +185,8 @@ score en pourcentage
 \end{DoxyReturn}
 
 
-Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+Voici le graphe d'appel pour cette fonction \-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -185,7 +197,8 @@ Voici le graphe d'appel pour cette fonction \-:\nopagebreak
 
 
 
-Voici le graphe des appelants de cette fonction \-:\nopagebreak
+Voici le graphe des appelants de cette fonction \-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
