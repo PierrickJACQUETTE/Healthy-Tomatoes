@@ -37,7 +37,7 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 					row['vote_average'] = newVote
 					row['SUCCESS'] = newVote
 				rowTotal = {**row, **row2}
-				if(i<numberSeparation):
+				if(i%20!=0):
 					es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
 				else:
 					es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
