@@ -21,7 +21,7 @@ test,st,dt = to.getEssentialTest()
 lt = to.createList(dt, st)
 
 print("naiveBayes")
-al.naiveBayes(lt, dic, mat, vec)
+#al.naiveBayes(lt, dic, mat, vec)
 
 print("K plus proche")
 x = al.find_best_k_for_kneighbors(mat, vec)
