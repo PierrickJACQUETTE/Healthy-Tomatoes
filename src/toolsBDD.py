@@ -1,7 +1,26 @@
-import numpy as np
+import operatorBDD as op
+import BDD as bdd
+
 import ast
-from sklearn.feature_extraction.text import TfidfVectorizer
+import os, sys
+import numpy as np
 from scipy.stats import ttest_ind
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+def init():
+    op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
+
+def getEssentialTrain() :
+    a = op.BDDSearchAll();
+    s = getSize(a)
+    d = [a]
+    return a,s,d
+
+def getEssentialTest():
+    a = op.BDDSearchAllTest()
+    s = getSize(a)
+    d = [a]
+    return a,s,d
 
 def getSize(a):
     return a['hits']['total']
@@ -27,12 +46,10 @@ def ranking(t, x) :
 
 def concatData(d, si, i) :
     s = d[0].get('hits').get('hits')[i].get('_source').get('SUCCESS')
-    # print(d[0].get('hits').get('hits')[i].get('_source').get('title'))
     return (s, getCast(d, si, i) + getData(d, si, i, 'genres') + getData(d, si, i, 'keywords') + getData(d, si, i, 'production_companies') + getReal(d, si, i))
 
 def getData(d, si, a, typ) :
     text = ""
-    # for i in range(si) :
     c = ast.literal_eval(d[0].get('hits').get('hits')[a].get('_source').get(typ))
     for j in c :
         if(j.get('name') != None) :
@@ -42,7 +59,6 @@ def getData(d, si, a, typ) :
 #return 6 acteurs
 def getCast(d, si, a) :
     text = ""
-    # for i in range(si) :
     c = ast.literal_eval(d[0].get('hits').get('hits')[a].get('_source').get('cast'))
     for j in c[:6] :
         if(j.get('name') != None) :
@@ -51,7 +67,6 @@ def getCast(d, si, a) :
 
 #return realisateur
 def getReal(d, si, a) :
-    # for i in range(si) :
     c = ast.literal_eval(d[0].get('hits').get('hits')[a].get('_source').get('crew'))
     for j in c :
         if (j.get('job') == "Director") and (j.get('name') != None) :
@@ -100,3 +115,15 @@ def test_success2(X, Y, index):
         return -1
     else :
         return 1
+
+# return moyenne et autres stats
+def stat(a):
+    d = [a]
+    tab = getAll_VoteAverage(d, getSize(a))
+    mo, me, va, ec = getData_VoteAverage(tab)
+    print("Moyenne : ", mo, " - Medianne : ", me, " - Variance : ", va, " - Ecart : ", ec)
+    print("nb supérieur à moyenne : ", ranking(tab, mo))
+    print("nb supérieur à mediane : ", ranking(tab, me))
+
+def get_train_test_sets(X, y):
+    return train_test_split(X, y)
