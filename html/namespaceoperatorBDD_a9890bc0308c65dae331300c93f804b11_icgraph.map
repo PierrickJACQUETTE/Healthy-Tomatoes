@@ -1,0 +1,6 @@
+<map id="BDDSearch" name="BDDSearch">
+<area shape="rect" id="node2" href="$namespaceoperatorBDD.html#a84ebaeadd8b021780f5fa72f73bf3ea3" title="cherche dans la table train, tout les documents " alt="" coords="181,5,288,32"/>
+<area shape="rect" id="node3" href="$namespaceoperatorBDD.html#a03889cf9d5fd998892c621491a12142b" title="cherche dans la table train, tout les documents ayant tel key et value " alt="" coords="161,56,309,83"/>
+<area shape="rect" id="node4" href="$namespaceoperatorBDD.html#aa9ab222b23d1b7a6e094fb82d702cd0a" title="cherche dans la table test, tout les documents " alt="" coords="168,107,301,133"/>
+<area shape="rect" id="node5" href="$namespaceoperatorBDD.html#a30969a6c243559357c836ae43365877b" title="cherche dans la table test, tout les documents ayant tel key et value " alt="" coords="147,157,322,184"/>
+</map>

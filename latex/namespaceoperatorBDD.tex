@@ -1,0 +1,209 @@
+\hypertarget{namespaceoperatorBDD}{\section{Référence de l'espace de nommage operator\-B\-D\-D}
+\label{namespaceoperatorBDD}\index{operator\-B\-D\-D@{operator\-B\-D\-D}}
+}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceoperatorBDD_a5aaccf3717ce1479bbd6ef2a0ffcbf49}{B\-D\-Dfrom\-C\-S\-V}
+\begin{DoxyCompactList}\small\item\em permet de stocker dans elasticsearch les donnees dans fichiers \end{DoxyCompactList}\item 
+def \hyperlink{namespaceoperatorBDD_a9890bc0308c65dae331300c93f804b11}{B\-D\-D\-Search}
+\begin{DoxyCompactList}\small\item\em cherche dans la table, la requete et renvoi le resultat \end{DoxyCompactList}\item 
+def \hyperlink{namespaceoperatorBDD_a84ebaeadd8b021780f5fa72f73bf3ea3}{B\-D\-D\-Search\-All}
+\begin{DoxyCompactList}\small\item\em cherche dans la table train, tout les documents \end{DoxyCompactList}\item 
+def \hyperlink{namespaceoperatorBDD_aa9ab222b23d1b7a6e094fb82d702cd0a}{B\-D\-D\-Search\-All\-Test}
+\begin{DoxyCompactList}\small\item\em cherche dans la table test, tout les documents \end{DoxyCompactList}\item 
+def \hyperlink{namespaceoperatorBDD_a03889cf9d5fd998892c621491a12142b}{B\-D\-D\-Search\-Categorie}
+\begin{DoxyCompactList}\small\item\em cherche dans la table train, tout les documents ayant tel key et value \end{DoxyCompactList}\item 
+def \hyperlink{namespaceoperatorBDD_a30969a6c243559357c836ae43365877b}{B\-D\-D\-Search\-Categorie\-Test}
+\begin{DoxyCompactList}\small\item\em cherche dans la table test, tout les documents ayant tel key et value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{namespaceoperatorBDD_a131e5e7a22125521cf2cb5eb732a0f54}{mediane\-Vote\-Average} = 6.\-2
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{namespaceoperatorBDD_a5aaccf3717ce1479bbd6ef2a0ffcbf49}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-Dfrom\-C\-S\-V@{B\-D\-Dfrom\-C\-S\-V}}
+\index{B\-D\-Dfrom\-C\-S\-V@{B\-D\-Dfrom\-C\-S\-V}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-Dfrom\-C\-S\-V}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-Dfrom\-C\-S\-V (
+\begin{DoxyParamCaption}
+\item[{}]{csv\-\_\-filename\-Movie, }
+\item[{}]{csv\-\_\-filename\-Credit, }
+\item[{}]{table\-Train, }
+\item[{}]{table\-Test, }
+\item[{}]{number\-Separation}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_a5aaccf3717ce1479bbd6ef2a0ffcbf49}
+
+
+permet de stocker dans elasticsearch les donnees dans fichiers 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em csv\-\_\-filename\-Movie} & chemin du fichier des films \\
+\hline
+{\em csv\-\_\-filename\-Credit} & chemin du fichier des credits \\
+\hline
+{\em table\-Train} & name table d'entrainement \\
+\hline
+{\em table\-Test} & name table de test \\
+\hline
+{\em number\-Separation} & nombre ou la separation a lieu entre les deux tables \\
+\hline
+\end{DoxyParams}
+\hypertarget{namespaceoperatorBDD_a9890bc0308c65dae331300c93f804b11}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-D\-Search@{B\-D\-D\-Search}}
+\index{B\-D\-D\-Search@{B\-D\-D\-Search}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-D\-Search}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-D\-Search (
+\begin{DoxyParamCaption}
+\item[{}]{query, }
+\item[{}]{table}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_a9890bc0308c65dae331300c93f804b11}
+
+
+cherche dans la table, la requete et renvoi le resultat 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em query} & requete a faire dnas la base \\
+\hline
+{\em table} & sur quel table effectue la requete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+resultat de la requete 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{namespaceoperatorBDD_a9890bc0308c65dae331300c93f804b11_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceoperatorBDD_a84ebaeadd8b021780f5fa72f73bf3ea3}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-D\-Search\-All@{B\-D\-D\-Search\-All}}
+\index{B\-D\-D\-Search\-All@{B\-D\-D\-Search\-All}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-D\-Search\-All}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-D\-Search\-All (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_a84ebaeadd8b021780f5fa72f73bf3ea3}
+
+
+cherche dans la table train, tout les documents 
+
+\begin{DoxyReturn}{Renvoie}
+resultat de la requete 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{namespaceoperatorBDD_a84ebaeadd8b021780f5fa72f73bf3ea3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceoperatorBDD_aa9ab222b23d1b7a6e094fb82d702cd0a}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-D\-Search\-All\-Test@{B\-D\-D\-Search\-All\-Test}}
+\index{B\-D\-D\-Search\-All\-Test@{B\-D\-D\-Search\-All\-Test}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-D\-Search\-All\-Test}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-D\-Search\-All\-Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_aa9ab222b23d1b7a6e094fb82d702cd0a}
+
+
+cherche dans la table test, tout les documents 
+
+\begin{DoxyReturn}{Renvoie}
+resultat de la requete 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{namespaceoperatorBDD_aa9ab222b23d1b7a6e094fb82d702cd0a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceoperatorBDD_a03889cf9d5fd998892c621491a12142b}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-D\-Search\-Categorie@{B\-D\-D\-Search\-Categorie}}
+\index{B\-D\-D\-Search\-Categorie@{B\-D\-D\-Search\-Categorie}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-D\-Search\-Categorie}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-D\-Search\-Categorie (
+\begin{DoxyParamCaption}
+\item[{}]{key, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_a03889cf9d5fd998892c621491a12142b}
+
+
+cherche dans la table train, tout les documents ayant tel key et value 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & le champs sur lequel faire une requete \\
+\hline
+{\em value} & la valeur du champs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+resultat de la requete 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{namespaceoperatorBDD_a03889cf9d5fd998892c621491a12142b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceoperatorBDD_a30969a6c243559357c836ae43365877b}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!B\-D\-D\-Search\-Categorie\-Test@{B\-D\-D\-Search\-Categorie\-Test}}
+\index{B\-D\-D\-Search\-Categorie\-Test@{B\-D\-D\-Search\-Categorie\-Test}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{B\-D\-D\-Search\-Categorie\-Test}]{\setlength{\rightskip}{0pt plus 5cm}def operator\-B\-D\-D.\-B\-D\-D\-Search\-Categorie\-Test (
+\begin{DoxyParamCaption}
+\item[{}]{key, }
+\item[{}]{value}
+\end{DoxyParamCaption}
+)}}\label{namespaceoperatorBDD_a30969a6c243559357c836ae43365877b}
+
+
+cherche dans la table test, tout les documents ayant tel key et value 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em key} & le champs sur lequel faire une requete \\
+\hline
+{\em value} & la valeur du champs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+resultat de la requete 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{namespaceoperatorBDD_a30969a6c243559357c836ae43365877b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des variables}
+\hypertarget{namespaceoperatorBDD_a131e5e7a22125521cf2cb5eb732a0f54}{\index{operator\-B\-D\-D@{operator\-B\-D\-D}!mediane\-Vote\-Average@{mediane\-Vote\-Average}}
+\index{mediane\-Vote\-Average@{mediane\-Vote\-Average}!operatorBDD@{operator\-B\-D\-D}}
+\subsubsection[{mediane\-Vote\-Average}]{\setlength{\rightskip}{0pt plus 5cm}float mediane\-Vote\-Average = 6.\-2}}\label{namespaceoperatorBDD_a131e5e7a22125521cf2cb5eb732a0f54}

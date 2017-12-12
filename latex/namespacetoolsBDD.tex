@@ -1,0 +1,583 @@
+\hypertarget{namespacetoolsBDD}{\section{Référence de l'espace de nommage tools\-B\-D\-D}
+\label{namespacetoolsBDD}\index{tools\-B\-D\-D@{tools\-B\-D\-D}}
+}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacetoolsBDD_abf21310dd3cdd39ff5f781eaafb23b24}{concat\-Data}
+\begin{DoxyCompactList}\small\item\em permet de concatener les valeurs \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_afc4367a1a711e612f8f4d6363edbc640}{create\-List}
+\begin{DoxyCompactList}\small\item\em liste of tuple \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a60efb6c205d51bf9a9e32b6d19f633b4}{get\-\_\-train\-\_\-test\-\_\-sets}
+\begin{DoxyCompactList}\small\item\em permet de creer faire des separation pour la validation croisee \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ae897b96e0c4a89d09f418e620819a066}{get\-All\-\_\-\-Vote\-Average}
+\begin{DoxyCompactList}\small\item\em recuperer tous les votes \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a15b2ef52eec23442bb79863d794e2e2b}{get\-Cast}
+\begin{DoxyCompactList}\small\item\em permet de contaner les valeurs des 6 acteurs dans une chaine de char \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ab6a097315bef68f12966b652fd120913}{get\-Data}
+\begin{DoxyCompactList}\small\item\em permet de contaner les valeurs dans une chaine de char \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a1815eb69cbba2e6abc16b649baa2fdad}{get\-Data\-\_\-\-Vote\-Average}
+\begin{DoxyCompactList}\small\item\em calcul des statistiques sur le champ vote\-\_\-average \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_aef96b5903d59864e793f4377d82bac25}{get\-Dict}
+\begin{DoxyCompactList}\small\item\em permet de connaitre les labels dune tfidf \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_abc6b8127dc8f28edc53d719a4835bfa3}{get\-Essential\-Test}
+\begin{DoxyCompactList}\small\item\em permet de recuperer les infos pour ensemble de train \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ab85cfda40b715e400dda4a5e5c97f9ce}{get\-Essential\-Train}
+\begin{DoxyCompactList}\small\item\em permet de recuperer les infos pour ensemble de train \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ad9d092a50decbd07a5130e144731caa9}{get\-Real}
+\begin{DoxyCompactList}\small\item\em permet de contaner les realisateurs dans une chaine de char \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ae224e914a0d4d23030401af6e59cb1bc}{get\-Size}
+\begin{DoxyCompactList}\small\item\em permet de savoir le nombre de hits \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a49928e1495cbb0687a8656f3c5481d5b}{get\-Test}
+\begin{DoxyCompactList}\small\item\em return an index for tfidf, None if doesn't exist \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_ae5e38adc6d6db8e1ece60d2bc307a39f}{init}
+\begin{DoxyCompactList}\small\item\em permet de charger dans la base de donnee \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a82b711337498f7fa58e3c9d784415424}{ranking}
+\begin{DoxyCompactList}\small\item\em calcul le nombre de film dont le score $>$= x \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a2e502b4dae284eb951de46e92134895f}{stat}
+\begin{DoxyCompactList}\small\item\em permet de calculer et d'afficher des statistiques \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a73bb9d4526a9cd6825636ef1a5777106}{test\-\_\-success}
+\begin{DoxyCompactList}\small\item\em permet de savoir si cela est un succes \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_a07b4809d77a061cf4c10d05b35edf657}{test\-\_\-success2}
+\begin{DoxyCompactList}\small\item\em permet de savoir si cela est un succes \end{DoxyCompactList}\item 
+def \hyperlink{namespacetoolsBDD_accbe8232ffba571517272bcd0eb22df7}{transform}
+\begin{DoxyCompactList}\small\item\em permet d'effectuer un tfidf \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{namespacetoolsBDD_abf21310dd3cdd39ff5f781eaafb23b24}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!concat\-Data@{concat\-Data}}
+\index{concat\-Data@{concat\-Data}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{concat\-Data}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-concat\-Data (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_abf21310dd3cdd39ff5f781eaafb23b24}
+
+
+permet de concatener les valeurs 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+{\em i} & le numero de la ligne courante \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{namespacetoolsBDD_abf21310dd3cdd39ff5f781eaafb23b24_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{namespacetoolsBDD_abf21310dd3cdd39ff5f781eaafb23b24_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_afc4367a1a711e612f8f4d6363edbc640}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!create\-List@{create\-List}}
+\index{create\-List@{create\-List}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{create\-List}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-create\-List (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_afc4367a1a711e612f8f4d6363edbc640}
+
+
+liste of tuple 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+list of tuple 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{namespacetoolsBDD_afc4367a1a711e612f8f4d6363edbc640_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a60efb6c205d51bf9a9e32b6d19f633b4}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-\_\-train\-\_\-test\-\_\-sets@{get\-\_\-train\-\_\-test\-\_\-sets}}
+\index{get\-\_\-train\-\_\-test\-\_\-sets@{get\-\_\-train\-\_\-test\-\_\-sets}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-\_\-train\-\_\-test\-\_\-sets}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-\_\-train\-\_\-test\-\_\-sets (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a60efb6c205d51bf9a9e32b6d19f633b4}
+
+
+permet de creer faire des separation pour la validation croisee 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+split 
+\end{DoxyReturn}
+\hypertarget{namespacetoolsBDD_ae897b96e0c4a89d09f418e620819a066}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-All\-\_\-\-Vote\-Average@{get\-All\-\_\-\-Vote\-Average}}
+\index{get\-All\-\_\-\-Vote\-Average@{get\-All\-\_\-\-Vote\-Average}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-All\-\_\-\-Vote\-Average}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-All\-\_\-\-Vote\-Average (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ae897b96e0c4a89d09f418e620819a066}
+
+
+recuperer tous les votes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+a numpy array \-: list 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{namespacetoolsBDD_ae897b96e0c4a89d09f418e620819a066_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a15b2ef52eec23442bb79863d794e2e2b}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Cast@{get\-Cast}}
+\index{get\-Cast@{get\-Cast}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Cast}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Cast (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a15b2ef52eec23442bb79863d794e2e2b}
+
+
+permet de contaner les valeurs des 6 acteurs dans une chaine de char 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+{\em a} & le numero de la ligne courante \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{namespacetoolsBDD_a15b2ef52eec23442bb79863d794e2e2b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_ab6a097315bef68f12966b652fd120913}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Data@{get\-Data}}
+\index{get\-Data@{get\-Data}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Data}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Data (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si, }
+\item[{}]{a, }
+\item[{}]{typ}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ab6a097315bef68f12966b652fd120913}
+
+
+permet de contaner les valeurs dans une chaine de char 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+{\em a} & le numero de la ligne courante \\
+\hline
+{\em typ} & le champs a regarder \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char$\ast$ 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{namespacetoolsBDD_ab6a097315bef68f12966b652fd120913_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a1815eb69cbba2e6abc16b649baa2fdad}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Data\-\_\-\-Vote\-Average@{get\-Data\-\_\-\-Vote\-Average}}
+\index{get\-Data\-\_\-\-Vote\-Average@{get\-Data\-\_\-\-Vote\-Average}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Data\-\_\-\-Vote\-Average}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Data\-\_\-\-Vote\-Average (
+\begin{DoxyParamCaption}
+\item[{}]{t}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a1815eb69cbba2e6abc16b649baa2fdad}
+
+
+calcul des statistiques sur le champ vote\-\_\-average 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t} & une ligne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+moyenne, median, variance, ecart de vote\-\_\-average 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{namespacetoolsBDD_a1815eb69cbba2e6abc16b649baa2fdad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_aef96b5903d59864e793f4377d82bac25}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Dict@{get\-Dict}}
+\index{get\-Dict@{get\-Dict}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Dict}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Dict (
+\begin{DoxyParamCaption}
+\item[{}]{tfidf}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_aef96b5903d59864e793f4377d82bac25}
+
+
+permet de connaitre les labels dune tfidf 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em tfidf} & ou recuperer le vocabulaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le vocabulaire de la tf-\/idf 
+\end{DoxyReturn}
+\hypertarget{namespacetoolsBDD_abc6b8127dc8f28edc53d719a4835bfa3}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Essential\-Test@{get\-Essential\-Test}}
+\index{get\-Essential\-Test@{get\-Essential\-Test}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Essential\-Test}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Essential\-Test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_abc6b8127dc8f28edc53d719a4835bfa3}
+
+
+permet de recuperer les infos pour ensemble de train 
+
+\begin{DoxyReturn}{Renvoie}
+a,s,d les lignes de la base, le nombre et un dict 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{namespacetoolsBDD_abc6b8127dc8f28edc53d719a4835bfa3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_ab85cfda40b715e400dda4a5e5c97f9ce}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Essential\-Train@{get\-Essential\-Train}}
+\index{get\-Essential\-Train@{get\-Essential\-Train}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Essential\-Train}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Essential\-Train (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ab85cfda40b715e400dda4a5e5c97f9ce}
+
+
+permet de recuperer les infos pour ensemble de train 
+
+\begin{DoxyReturn}{Renvoie}
+a,s,d les lignes de la base, le nombre et un dict 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{namespacetoolsBDD_ab85cfda40b715e400dda4a5e5c97f9ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_ad9d092a50decbd07a5130e144731caa9}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Real@{get\-Real}}
+\index{get\-Real@{get\-Real}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Real}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Real (
+\begin{DoxyParamCaption}
+\item[{}]{d, }
+\item[{}]{si, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ad9d092a50decbd07a5130e144731caa9}
+
+
+permet de contaner les realisateurs dans une chaine de char 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em d} & toutes les lignes \\
+\hline
+{\em si} & nombre de lignes \\
+\hline
+{\em a} & le numero de la ligne courante \\
+\hline
+\end{DoxyParams}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{namespacetoolsBDD_ad9d092a50decbd07a5130e144731caa9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_ae224e914a0d4d23030401af6e59cb1bc}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Size@{get\-Size}}
+\index{get\-Size@{get\-Size}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Size (
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ae224e914a0d4d23030401af6e59cb1bc}
+
+
+permet de savoir le nombre de hits 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & les lignes de la base \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre de ligne 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{namespacetoolsBDD_ae224e914a0d4d23030401af6e59cb1bc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a49928e1495cbb0687a8656f3c5481d5b}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!get\-Test@{get\-Test}}
+\index{get\-Test@{get\-Test}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{get\-Test}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-get\-Test (
+\begin{DoxyParamCaption}
+\item[{}]{dic, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a49928e1495cbb0687a8656f3c5481d5b}
+
+
+return an index for tfidf, None if doesn't exist 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dict} & dictionnaire \\
+\hline
+{\em s} & nom du labels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+valeur pour ce label 
+\end{DoxyReturn}
+\hypertarget{namespacetoolsBDD_ae5e38adc6d6db8e1ece60d2bc307a39f}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!init@{init}}
+\index{init@{init}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_ae5e38adc6d6db8e1ece60d2bc307a39f}
+
+
+permet de charger dans la base de donnee 
+
+\hypertarget{namespacetoolsBDD_a82b711337498f7fa58e3c9d784415424}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!ranking@{ranking}}
+\index{ranking@{ranking}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{ranking}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-ranking (
+\begin{DoxyParamCaption}
+\item[{}]{t, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a82b711337498f7fa58e3c9d784415424}
+
+
+calcul le nombre de film dont le score $>$= x 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em t} & une ligne \\
+\hline
+{\em x} & number de comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{namespacetoolsBDD_a82b711337498f7fa58e3c9d784415424_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a2e502b4dae284eb951de46e92134895f}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!stat@{stat}}
+\index{stat@{stat}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{stat}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-stat (
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a2e502b4dae284eb951de46e92134895f}
+
+
+permet de calculer et d'afficher des statistiques 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em a} & liste de lignes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+moyenne et autres stats 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{namespacetoolsBDD_a2e502b4dae284eb951de46e92134895f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacetoolsBDD_a73bb9d4526a9cd6825636ef1a5777106}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!test\-\_\-success@{test\-\_\-success}}
+\index{test\-\_\-success@{test\-\_\-success}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{test\-\_\-success}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-test\-\_\-success (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{Y, }
+\item[{}]{index}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a73bb9d4526a9cd6825636ef1a5777106}
+
+
+permet de savoir si cela est un succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf  predicat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+if t $<$ 0 -\/$>$ success else clear 
+\end{DoxyReturn}
+\hypertarget{namespacetoolsBDD_a07b4809d77a061cf4c10d05b35edf657}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!test\-\_\-success2@{test\-\_\-success2}}
+\index{test\-\_\-success2@{test\-\_\-success2}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{test\-\_\-success2}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-test\-\_\-success2 (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{Y, }
+\item[{}]{index}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_a07b4809d77a061cf4c10d05b35edf657}
+
+
+permet de savoir si cela est un succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf  predicat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+if t $<$ 0 -\/$>$ success else clear 
+\end{DoxyReturn}
+\hypertarget{namespacetoolsBDD_accbe8232ffba571517272bcd0eb22df7}{\index{tools\-B\-D\-D@{tools\-B\-D\-D}!transform@{transform}}
+\index{transform@{transform}!toolsBDD@{tools\-B\-D\-D}}
+\subsubsection[{transform}]{\setlength{\rightskip}{0pt plus 5cm}def tools\-B\-D\-D.\-transform (
+\begin{DoxyParamCaption}
+\item[{}]{pairs, }
+\item[{}]{vocabulary = {\ttfamily None}}
+\end{DoxyParamCaption}
+)}}\label{namespacetoolsBDD_accbe8232ffba571517272bcd0eb22df7}
+
+
+permet d'effectuer un tfidf 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em pairs} & le texte \\
+\hline
+{\em vocabulary} & vocabulaire sur lequel applique l'algorithme \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+tf-\/idf + vector 
+\end{DoxyReturn}

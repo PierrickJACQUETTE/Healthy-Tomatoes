@@ -1,0 +1,5 @@
+<map id="getSize" name="getSize">
+<area shape="rect" id="node2" href="$namespacetoolsBDD.html#ab85cfda40b715e400dda4a5e5c97f9ce" title="permet de recuperer les infos pour ensemble de train " alt="" coords="120,5,243,32"/>
+<area shape="rect" id="node3" href="$namespacetoolsBDD.html#abc6b8127dc8f28edc53d719a4835bfa3" title="permet de recuperer les infos pour ensemble de train " alt="" coords="121,56,241,83"/>
+<area shape="rect" id="node4" href="$namespacetoolsBDD.html#a2e502b4dae284eb951de46e92134895f" title="permet de calculer et d&#39;afficher des statistiques " alt="" coords="159,107,203,133"/>
+</map>

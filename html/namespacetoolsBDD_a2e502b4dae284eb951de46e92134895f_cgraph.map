@@ -1,0 +1,6 @@
+<map id="stat" name="stat">
+<area shape="rect" id="node2" href="$namespacetoolsBDD.html#ae897b96e0c4a89d09f418e620819a066" title="recuperer tous les votes " alt="" coords="106,5,243,32"/>
+<area shape="rect" id="node3" href="$namespacetoolsBDD.html#ae224e914a0d4d23030401af6e59cb1bc" title="permet de savoir le nombre de hits " alt="" coords="141,56,208,83"/>
+<area shape="rect" id="node4" href="$namespacetoolsBDD.html#a1815eb69cbba2e6abc16b649baa2fdad" title="calcul des statistiques sur le champ vote_average " alt="" coords="99,107,250,133"/>
+<area shape="rect" id="node5" href="$namespacetoolsBDD.html#a82b711337498f7fa58e3c9d784415424" title="calcul le nombre de film dont le score &gt;= x " alt="" coords="143,157,207,184"/>
+</map>

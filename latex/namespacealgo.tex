@@ -1,0 +1,221 @@
+\hypertarget{namespacealgo}{\section{Référence de l'espace de nommage algo}
+\label{namespacealgo}\index{algo@{algo}}
+}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacealgo_a802d43423d0ac8fd6a52cc2508186072}{accuraccy\-\_\-test}
+\begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7}{algo\-Tree}
+\begin{DoxyCompactList}\small\item\em permet de lancer pour les deux arbres \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_a70c4b2737389dbfb07be3b39a8cf8e9b}{find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors}
+\begin{DoxyCompactList}\small\item\em permet de savoir le meilleur k possible \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}{generic\-\_\-tree}
+\begin{DoxyCompactList}\small\item\em permet de savoir les meilleurs parametres \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07}{generic\-\_\-tree\-\_\-score}
+\begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_a5ecd48a13b42118beac0652265b8f353}{naive\-Bayes}
+\begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{namespacealgo_a802d43423d0ac8fd6a52cc2508186072}{\index{algo@{algo}!accuraccy\-\_\-test@{accuraccy\-\_\-test}}
+\index{accuraccy\-\_\-test@{accuraccy\-\_\-test}!algo@{algo}}
+\subsubsection[{accuraccy\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-accuraccy\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y, }
+\item[{}]{tfidf, }
+\item[{}]{l, }
+\item[{}]{k = {\ttfamily 77}}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a802d43423d0ac8fd6a52cc2508186072}
+
+
+permet de savoir si c'est un echec ou succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+{\em k} & nombre de k voisin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+score en pourcentage sur l'ensemble de test 
+\end{DoxyReturn}
+\hypertarget{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7}{\index{algo@{algo}!algo\-Tree@{algo\-Tree}}
+\index{algo\-Tree@{algo\-Tree}!algo@{algo}}
+\subsubsection[{algo\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-algo\-Tree (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y, }
+\item[{}]{tfidf, }
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7}
+
+
+permet de lancer pour les deux arbres 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+{\em l} & list de tuples contenant (success, puis liste de mot) \\
+\hline
+{\em tfdif} & \\
+\hline
+\end{DoxyParams}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacealgo_a70c4b2737389dbfb07be3b39a8cf8e9b}{\index{algo@{algo}!find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors@{find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors}}
+\index{find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors@{find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors}!algo@{algo}}
+\subsubsection[{find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-find\-\_\-best\-\_\-k\-\_\-for\-\_\-kneighbors (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y, }
+\item[{}]{n\-\_\-splits = {\ttfamily 5}}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a70c4b2737389dbfb07be3b39a8cf8e9b}
+
+
+permet de savoir le meilleur k possible 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+{\em n\-\_\-splits,combien} & de sous ensemble pour la validation croisee \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+best k 
+\end{DoxyReturn}
+\hypertarget{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}{\index{algo@{algo}!generic\-\_\-tree@{generic\-\_\-tree}}
+\index{generic\-\_\-tree@{generic\-\_\-tree}!algo@{algo}}
+\subsubsection[{generic\-\_\-tree}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-generic\-\_\-tree (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y, }
+\item[{}]{cls}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}
+
+
+permet de savoir les meilleurs parametres 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+{\em cls} & fonction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+best\-\_\-min\-\_\-samples\-\_\-split,best\-\_\-max\-\_\-depth parametres optimaux 
+\end{DoxyReturn}
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07}{\index{algo@{algo}!generic\-\_\-tree\-\_\-score@{generic\-\_\-tree\-\_\-score}}
+\index{generic\-\_\-tree\-\_\-score@{generic\-\_\-tree\-\_\-score}!algo@{algo}}
+\subsubsection[{generic\-\_\-tree\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-generic\-\_\-tree\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{}]{X, }
+\item[{}]{y, }
+\item[{}]{tfidf, }
+\item[{}]{l, }
+\item[{}]{cls}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07}
+
+
+permet de savoir si c'est un echec ou succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em X} & resultat de la tfidf \\
+\hline
+{\em y} & vecteur de la tfidf \\
+\hline
+{\em l} & list de tuples contenant (success, puis liste de mot) \\
+\hline
+{\em tfdif} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+score en pourcentage 
+\end{DoxyReturn}
+
+
+Voici le graphe d'appel pour cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespacealgo_a5ecd48a13b42118beac0652265b8f353}{\index{algo@{algo}!naive\-Bayes@{naive\-Bayes}}
+\index{naive\-Bayes@{naive\-Bayes}!algo@{algo}}
+\subsubsection[{naive\-Bayes}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-naive\-Bayes (
+\begin{DoxyParamCaption}
+\item[{}]{lt, }
+\item[{}]{dic, }
+\item[{}]{mat, }
+\item[{}]{vec}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a5ecd48a13b42118beac0652265b8f353}
+
+
+permet de savoir si c'est un echec ou succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lt} & list de tuples contenant (success, puis liste de mot) \\
+\hline
+{\em dic} & dictionnaire de la tfdif \\
+\hline
+{\em mat} & resultat de la tfidf \\
+\hline
+{\em vec} & vecteur de la tfidf \\
+\hline
+\end{DoxyParams}
