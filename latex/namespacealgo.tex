@@ -15,6 +15,8 @@ def \hyperlink{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}{generic\-\_\-tre
 def \hyperlink{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07}{generic\-\_\-tree\-\_\-score}
 \begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\item 
 def \hyperlink{namespacealgo_a5ecd48a13b42118beac0652265b8f353}{naive\-Bayes}
+\begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\item 
+def \hyperlink{namespacealgo_a9420060c614f9fb33cf05c91da71aee9}{very\-Naive\-Bayes}
 \begin{DoxyCompactList}\small\item\em permet de savoir si c'est un echec ou succes \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -25,8 +27,8 @@ def \hyperlink{namespacealgo_a5ecd48a13b42118beac0652265b8f353}{naive\-Bayes}
 \begin{DoxyParamCaption}
 \item[{}]{X, }
 \item[{}]{y, }
-\item[{}]{tfidf, }
-\item[{}]{l, }
+\item[{}]{matt, }
+\item[{}]{vect, }
 \item[{}]{k = {\ttfamily 77}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_a802d43423d0ac8fd6a52cc2508186072}
@@ -42,6 +44,10 @@ permet de savoir si c'est un echec ou succes
 \hline
 {\em k} & nombre de k voisin \\
 \hline
+{\em matt} & resultat de la tfidf de test \\
+\hline
+{\em vect} & vecteur de la tfidf de test \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
 score en pourcentage sur l'ensemble de test 
@@ -52,8 +58,8 @@ score en pourcentage sur l'ensemble de test
 \begin{DoxyParamCaption}
 \item[{}]{X, }
 \item[{}]{y, }
-\item[{}]{tfidf, }
-\item[{}]{l, }
+\item[{}]{matt, }
+\item[{}]{vect, }
 \item[{}]{show = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_ab46541a846c7f71c15e9bae5d5836af7}
@@ -67,11 +73,11 @@ permet de lancer pour les deux arbres
 \hline
 {\em y} & vecteur de la tfidf \\
 \hline
-{\em l} & list de tuples contenant (success, puis liste de mot) \\
+{\em matt} & resultat de la tfidf de test \\
+\hline
+{\em vect} & vecteur de la tfidf de test \\
 \hline
 {\em show} & savoir si l'on dessine le graph \\
-\hline
-{\em tfdif} & \\
 \hline
 \end{DoxyParams}
 
@@ -121,7 +127,7 @@ best k
 \item[{}]{X, }
 \item[{}]{y, }
 \item[{}]{cls, }
-\item[{}]{show}
+\item[{}]{show = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_a4227080ec2328a03c4f6f01e7b022e08}
 
@@ -160,9 +166,10 @@ Voici le graphe des appelants de cette fonction \-:
 \begin{DoxyParamCaption}
 \item[{}]{X, }
 \item[{}]{y, }
-\item[{}]{tfidf, }
-\item[{}]{l, }
-\item[{}]{cls}
+\item[{}]{matt, }
+\item[{}]{vect, }
+\item[{}]{cls, }
+\item[{}]{show = {\ttfamily 0}}
 \end{DoxyParamCaption}
 )}}\label{namespacealgo_a0afe8d007fc92279c75be5d0b40ecf07}
 
@@ -175,9 +182,11 @@ permet de savoir si c'est un echec ou succes
 \hline
 {\em y} & vecteur de la tfidf \\
 \hline
-{\em l} & list de tuples contenant (success, puis liste de mot) \\
+{\em matt} & resultat de la tfidf de test \\
 \hline
-{\em tfdif} & \\
+{\em vect} & vecteur de la tfidf de test \\
+\hline
+{\em show} & savoir si l'on dessine le graph \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
@@ -211,12 +220,40 @@ Voici le graphe des appelants de cette fonction \-:
 \index{naive\-Bayes@{naive\-Bayes}!algo@{algo}}
 \subsubsection[{naive\-Bayes}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-naive\-Bayes (
 \begin{DoxyParamCaption}
+\item[{}]{mat, }
+\item[{}]{vec, }
+\item[{}]{matt, }
+\item[{}]{vect}
+\end{DoxyParamCaption}
+)}}\label{namespacealgo_a5ecd48a13b42118beac0652265b8f353}
+
+
+permet de savoir si c'est un echec ou succes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mat} & resultat de la tfidf de train \\
+\hline
+{\em vec} & vecteur de la tfidf de train \\
+\hline
+{\em matt} & resultat de la tfidf de test \\
+\hline
+{\em vect} & vecteur de la tfidf de test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+score en pourcentage sur l'ensemble de test 
+\end{DoxyReturn}
+\hypertarget{namespacealgo_a9420060c614f9fb33cf05c91da71aee9}{\index{algo@{algo}!very\-Naive\-Bayes@{very\-Naive\-Bayes}}
+\index{very\-Naive\-Bayes@{very\-Naive\-Bayes}!algo@{algo}}
+\subsubsection[{very\-Naive\-Bayes}]{\setlength{\rightskip}{0pt plus 5cm}def algo.\-very\-Naive\-Bayes (
+\begin{DoxyParamCaption}
 \item[{}]{lt, }
 \item[{}]{dic, }
 \item[{}]{mat, }
 \item[{}]{vec}
 \end{DoxyParamCaption}
-)}}\label{namespacealgo_a5ecd48a13b42118beac0652265b8f353}
+)}}\label{namespacealgo_a9420060c614f9fb33cf05c91da71aee9}
 
 
 permet de savoir si c'est un echec ou succes 

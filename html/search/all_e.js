@@ -5,7 +5,6 @@ var searchData=
   ['tablemovietest',['tableMovieTest',['../namespaceBDD.html#a1a3347461ee00b8dba8e995423d6acea',1,'BDD']]],
   ['tablemovietrain',['tableMovieTrain',['../namespaceBDD.html#a69bea8ff9373a0baf5bbf3df09f7a3b0',1,'BDD']]],
   ['test_5fsuccess',['test_success',['../namespacetoolsBDD.html#a73bb9d4526a9cd6825636ef1a5777106',1,'toolsBDD']]],
-  ['test_5fsuccess2',['test_success2',['../namespacetoolsBDD.html#a07b4809d77a061cf4c10d05b35edf657',1,'toolsBDD']]],
   ['toolsbdd',['toolsBDD',['../namespacetoolsBDD.html',1,'']]],
   ['toolsbdd_2epy',['toolsBDD.py',['../toolsBDD_8py.html',1,'']]],
   ['transform',['transform',['../namespacetoolsBDD.html#accbe8232ffba571517272bcd0eb22df7',1,'toolsBDD']]]

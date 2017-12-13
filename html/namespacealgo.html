@@ -107,6 +107,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a5ecd48a13b42118beac0652265b8f353"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacealgo.html#a5ecd48a13b42118beac0652265b8f353">naiveBayes</a></td></tr>
 <tr class="memdesc:a5ecd48a13b42118beac0652265b8f353"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de savoir si c'est un echec ou succes  <a href="#a5ecd48a13b42118beac0652265b8f353">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a5ecd48a13b42118beac0652265b8f353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9420060c614f9fb33cf05c91da71aee9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacealgo.html#a9420060c614f9fb33cf05c91da71aee9">veryNaiveBayes</a></td></tr>
+<tr class="memdesc:a9420060c614f9fb33cf05c91da71aee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de savoir si c'est un echec ou succes  <a href="#a9420060c614f9fb33cf05c91da71aee9">Plus de détails...</a><br/></td></tr>
+<tr class="separator:a9420060c614f9fb33cf05c91da71aee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentation des fonctions</h2>
 <a class="anchor" id="a802d43423d0ac8fd6a52cc2508186072"></a>
@@ -129,13 +132,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>tfidf</em>, </td>
+          <td class="paramname"><em>matt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramname"><em>vect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -157,6 +160,8 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">X</td><td>resultat de la tfidf </td></tr>
     <tr><td class="paramname">y</td><td>vecteur de la tfidf </td></tr>
     <tr><td class="paramname">k</td><td>nombre de k voisin </td></tr>
+    <tr><td class="paramname">matt</td><td>resultat de la tfidf de test </td></tr>
+    <tr><td class="paramname">vect</td><td>vecteur de la tfidf de test </td></tr>
   </table>
   </dd>
 </dl>
@@ -184,13 +189,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>tfidf</em>, </td>
+          <td class="paramname"><em>matt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramname"><em>vect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -211,9 +216,9 @@ Fonctions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">X</td><td>resultat de la tfidf </td></tr>
     <tr><td class="paramname">y</td><td>vecteur de la tfidf </td></tr>
-    <tr><td class="paramname">l</td><td>list de tuples contenant (success, puis liste de mot) </td></tr>
+    <tr><td class="paramname">matt</td><td>resultat de la tfidf de test </td></tr>
+    <tr><td class="paramname">vect</td><td>vecteur de la tfidf de test </td></tr>
     <tr><td class="paramname">show</td><td>savoir si l'on dessine le graph </td></tr>
-    <tr><td class="paramname">tfdif</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -305,7 +310,7 @@ Voici le graphe d'appel pour cette fonction :</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>show</em>&#160;</td>
+          <td class="paramname"><em>show</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -358,19 +363,25 @@ Voici le graphe des appelants de cette fonction :</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>tfidf</em>, </td>
+          <td class="paramname"><em>matt</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramname"><em>vect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>cls</em>&#160;</td>
+          <td class="paramname"><em>cls</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>show</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -385,8 +396,9 @@ Voici le graphe des appelants de cette fonction :</div>
   <table class="params">
     <tr><td class="paramname">X</td><td>resultat de la tfidf </td></tr>
     <tr><td class="paramname">y</td><td>vecteur de la tfidf </td></tr>
-    <tr><td class="paramname">l</td><td>list de tuples contenant (success, puis liste de mot) </td></tr>
-    <tr><td class="paramname">tfdif</td><td></td></tr>
+    <tr><td class="paramname">matt</td><td>resultat de la tfidf de test </td></tr>
+    <tr><td class="paramname">vect</td><td>vecteur de la tfidf de test </td></tr>
+    <tr><td class="paramname">show</td><td>savoir si l'on dessine le graph </td></tr>
   </table>
   </dd>
 </dl>
@@ -418,6 +430,56 @@ Voici le graphe des appelants de cette fonction :</div>
       <table class="memname">
         <tr>
           <td class="memname">def algo.naiveBayes </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>matt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>vect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>permet de savoir si c'est un echec ou succes </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mat</td><td>resultat de la tfidf de train </td></tr>
+    <tr><td class="paramname">vec</td><td>vecteur de la tfidf de train </td></tr>
+    <tr><td class="paramname">matt</td><td>resultat de la tfidf de test </td></tr>
+    <tr><td class="paramname">vect</td><td>vecteur de la tfidf de test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>score en pourcentage sur l'ensemble de test </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9420060c614f9fb33cf05c91da71aee9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def algo.veryNaiveBayes </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>lt</em>, </td>
@@ -464,7 +526,7 @@ Voici le graphe des appelants de cette fonction :</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 12 Décembre 2017 17:11:18 pour Healthy-Tomatoes par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 13 Décembre 2017 18:44:56 pour Healthy-Tomatoes par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
