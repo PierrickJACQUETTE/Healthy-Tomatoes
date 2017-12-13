@@ -9,6 +9,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import average_precision_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import BernoulliNB
@@ -55,7 +57,9 @@ def veryNaiveBayes(lt, dic, mat, vec) :
 def naiveBayes(mat, vec, matt, vect):
     model = BernoulliNB()
     model.fit(mat,vec)
-    return model.score(matt, vect)
+    y_pred =model.predict(matt)
+    print("Precision ", precision_score(vect, y_pred, average='macro')*100, "% et Recall", recall_score(vect, y_pred, average='macro')*100, "%")
+    return model.score(matt, vect)*100
 
 
 ##permet de savoir le meilleur k possible
@@ -109,6 +113,8 @@ def find_best_k_for_kneighbors(X, y, n_splits=5, show=0):
 def accuraccy_test(X, y, matt, vect, k=77):
     knn = KNeighborsClassifier(k, n_jobs=-1)
     knn.fit(X, y)
+    y_pred =knn.predict(matt)
+    print("Precision ", precision_score(vect, y_pred, average='macro')*100, "% et Recall", recall_score(vect, y_pred, average='macro')*100, "%")
     score = knn.score(matt, vect)
     return score*100
 
@@ -171,6 +177,9 @@ def generic_tree_score(X, y, matt, vect, cls, show=0):
     best_min, best_max = generic_tree(X, y, cls, show)
     m = cls(min_samples_split=best_min, max_depth=best_max)
     m.fit(X, y)
+    y_pred =m.predict(matt)
+    print("Precision ", precision_score(vect, y_pred, average='macro')*100, "% et Recall", recall_score(vect, y_pred, average='macro')*100, "%")
+
     score = m.score(matt, vect)
     return score
 

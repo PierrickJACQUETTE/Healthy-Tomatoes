@@ -27,7 +27,7 @@ lt = to.createList(dt, st)
 #al.veryNaiveBayes(lt, dic, mat, vec)
 
 print("NaiveBayes")
-print(al.naiveBayes(mat, vec, matt, vect))
+print(al.naiveBayes(mat, vec, matt, vect), "%")
 
 print("K plus proche")
 x = al.find_best_k_for_kneighbors(mat, vec)
