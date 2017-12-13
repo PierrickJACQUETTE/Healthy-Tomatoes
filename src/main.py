@@ -19,13 +19,19 @@ dic = to.getDict(tfidf)
 
 test,st,dt = to.getEssentialTest()
 lt = to.createList(dt, st)
+matt, vect, tfidft = to.transform(lt, to.getDict(tfidf))
 
-print("naiveBayes")
-al.naiveBayes(lt, dic, mat, vec)
+lt = to.createList(dt, st)
 
-# print("K plus proche")
-# x = al.find_best_k_for_kneighbors(mat, vec)
-# print(al.accuraccy_test(mat, vec, tfidf, lt, x), "%")
-#
-# print("Arbre de decision / Random Forest")
-# al.algoTree(mat, vec, tfidf, lt)
+#print("MyNaiveBayes")
+#al.veryNaiveBayes(lt, dic, mat, vec)
+
+print("NaiveBayes")
+print(al.naiveBayes(mat, vec, matt, vect))
+
+print("K plus proche")
+x = al.find_best_k_for_kneighbors(mat, vec)
+print(al.accuraccy_test(mat, vec, matt, vect, x), "%")
+
+print("Arbre de decision / Random Forest")
+al.algoTree(mat, vec, matt, vect)

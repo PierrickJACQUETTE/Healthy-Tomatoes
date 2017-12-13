@@ -11,6 +11,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import average_precision_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import BernoulliNB
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
@@ -20,7 +21,7 @@ from mpl_toolkits.mplot3d import Axes3D
 #@param mat resultat de la tfidf
 #@param vec vecteur de la tfidf
 #
-def naiveBayes(lt, dic, mat, vec) :
+def veryNaiveBayes(lt, dic, mat, vec) :
     true = fail = 0
 
     for (i,j) in lt :
@@ -30,7 +31,7 @@ def naiveBayes(lt, dic, mat, vec) :
             k = k.replace(',', '').lower()
             bob = to.getTest(dic, k)
             if(bob != None) :
-                res += to.test_success2(mat, vec, bob)
+                res += to.test_success(mat, vec, bob)
             else :
                 per += 1
         # print(i, res, per)
@@ -43,6 +44,19 @@ def naiveBayes(lt, dic, mat, vec) :
 
     print("OK : ", true)
     print("KO : ", fail)
+
+##permet de savoir si c'est un echec ou succes
+#@param mat resultat de la tfidf de train
+#@param vec vecteur de la tfidf de train
+#@param matt resultat de la tfidf de test
+#@param vect vecteur de la tfidf de test
+#@return score en pourcentage sur l'ensemble de test
+#
+def naiveBayes(mat, vec, matt, vect):
+    model = BernoulliNB()
+    model.fit(mat,vec)
+    return model.score(matt, vect)
+
 
 ##permet de savoir le meilleur k possible
 #@param X resultat de la tfidf
@@ -88,13 +102,14 @@ def find_best_k_for_kneighbors(X, y, n_splits=5, show=0):
 #@param X resultat de la tfidf
 #@param y vecteur de la tfidf
 #@param k nombre de k voisin
+#@param matt resultat de la tfidf de test
+#@param vect vecteur de la tfidf de test
 #@return score en pourcentage sur l'ensemble de test
 #
-def accuraccy_test(X, y, tfidf, l, k=77):
-    mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
+def accuraccy_test(X, y, matt, vect, k=77):
     knn = KNeighborsClassifier(k, n_jobs=-1)
     knn.fit(X, y)
-    score = knn.score(mat, vec)
+    score = knn.score(matt, vect)
     return score*100
 
 ##permet de savoir les meilleurs parametres
@@ -104,7 +119,7 @@ def accuraccy_test(X, y, tfidf, l, k=77):
 #@param show savoir si l'on dessine le graph
 #@return best_min_samples_split,best_max_depth parametres optimaux
 #
-def generic_tree(X, y, cls, show):
+def generic_tree(X, y, cls, show=0):
     X_train, X_test, y_train, y_test = train_test_split(X, y)
     n_splits = 5
     skf = StratifiedKFold(n_splits=n_splits)
@@ -141,33 +156,33 @@ def generic_tree(X, y, cls, show):
         ax.set_ylabel('Value of min_samples_split')
         ax.set_zlabel('Testing Accuracy')
         plt.show()
- 
+
     return best_min_samples_split, best_max_depth
 
 ##permet de savoir si c'est un echec ou succes
 #@param X resultat de la tfidf
 #@param y vecteur de la tfidf
-#@param l list de tuples contenant (success, puis liste de mot)
-#@param tfdif
+#@param matt resultat de la tfidf de test
+#@param vect vecteur de la tfidf de test
+#@param show savoir si l'on dessine le graph
 #@return score en  pourcentage
 #
-def generic_tree_score(X, y, tfidf, l, cls):
-    mat, vec, tfidfTest = to.transform(l, to.getDict(tfidf))
-    best_min, best_max = generic_tree(X, y, cls)
+def generic_tree_score(X, y, matt, vect, cls, show=0):
+    best_min, best_max = generic_tree(X, y, cls, show)
     m = cls(min_samples_split=best_min, max_depth=best_max)
     m.fit(X, y)
-    score = m.score(mat, vec)
+    score = m.score(matt, vect)
     return score
 
 ##permet de lancer pour les deux arbres
 #@param X resultat de la tfidf
 #@param y vecteur de la tfidf
-#@param l list de tuples contenant (success, puis liste de mot)
+#@param matt resultat de la tfidf de test
+#@param vect vecteur de la tfidf de test
 #@param show savoir si l'on dessine le graph
-#@param tfdif
 #
-def algoTree(X, y, tfidf, l, show=0):
-    tree_score = generic_tree_score(X, y, tfidf, l, DecisionTreeClassifier, show)
+def algoTree(X, y, matt, vect, show=0):
+    tree_score = generic_tree_score(X, y, matt, vect, DecisionTreeClassifier, show)
     print("tree score :", tree_score*100, "%")
-    forest_score = generic_tree_score(X, y, tfidf, l, RandomForestClassifier, show)
+    forest_score = generic_tree_score(X, y, matt, vect, RandomForestClassifier, show)
     print("forest score :", forest_score*100, "%")

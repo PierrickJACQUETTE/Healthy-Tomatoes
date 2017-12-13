@@ -151,18 +151,6 @@ def test_success(X, Y, index):
     success = X[Y == 1, index]
     failure = X[Y == 0, index]
     t, p = ttest_ind(success, failure)
-    return t, p
-
-## permet de savoir si cela est un succes
-#@param X resultat de la tfidf
-#@param y vecteur de la tfidf
-#@index predicat
-#@return if t < 0 -> success else clear
-def test_success2(X, Y, index):
-    X = X.toarray()
-    success = X[Y == 1, index]
-    failure = X[Y == 0, index]
-    t, p = ttest_ind(success, failure)
     if p > 0.01 :
         return 0
     elif t < 0 :
