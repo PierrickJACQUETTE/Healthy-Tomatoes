@@ -1,5 +1,5 @@
 ## \mainpage healthy-tomatoes ocumentation
-#Nous vous présentons le rapport du travail effectué dans le cadre du projet de Fouille de Données de master 2. Le projet est la réalisation d’un système de prédictions de la réussite d’un film basé sur son contenu. 
+#Nous vous présentons le rapport du travail effectué dans le cadre du projet de Fouille de Données de master 2. Le projet est la réalisation d’un système de prédictions de la réussite d’un film basé sur son contenu.
 #
 
 import algo as al
@@ -21,11 +21,11 @@ test,st,dt = to.getEssentialTest()
 lt = to.createList(dt, st)
 
 print("naiveBayes")
-#al.naiveBayes(lt, dic, mat, vec)
+al.naiveBayes(lt, dic, mat, vec)
 
-print("K plus proche")
-x = al.find_best_k_for_kneighbors(mat, vec)
-print(al.accuraccy_test(mat, vec, tfidf, lt, x), "%")
-
-print("Arbre de decision / Random Forest")
-al.algoTree(mat, vec, tfidf, lt)
+# print("K plus proche")
+# x = al.find_best_k_for_kneighbors(mat, vec)
+# print(al.accuraccy_test(mat, vec, tfidf, lt, x), "%")
+#
+# print("Arbre de decision / Random Forest")
+# al.algoTree(mat, vec, tfidf, lt)

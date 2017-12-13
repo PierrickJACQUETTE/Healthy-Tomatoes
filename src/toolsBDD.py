@@ -122,7 +122,7 @@ def createList(d, si) :
 #@param vocabulary vocabulaire sur lequel applique l'algorithme
 #@return tf-idf + vector
 def transform(pairs, vocabulary=None):
-    tfidf = TfidfVectorizer(min_df=0.005,stop_words="english",vocabulary=vocabulary)
+    tfidf = TfidfVectorizer(min_df=0.005,stop_words="english",vocabulary=vocabulary,ngram_range=(1,2))
     types, text = zip(*pairs)
     matrice = tfidf.fit_transform(text)
     vector = np.array(types)
@@ -145,7 +145,7 @@ def getTest(dic, s):
 #@param X resultat de la tfidf
 #@param y vecteur de la tfidf
 #@index predicat
-##@return if t < 0 -> success else clear
+#@return if t < 0 -> success else clear
 def test_success(X, Y, index):
     X = X.toarray()
     success = X[Y == 1, index]
@@ -157,13 +157,13 @@ def test_success(X, Y, index):
 #@param X resultat de la tfidf
 #@param y vecteur de la tfidf
 #@index predicat
-##@return if t < 0 -> success else clear
+#@return if t < 0 -> success else clear
 def test_success2(X, Y, index):
     X = X.toarray()
     success = X[Y == 1, index]
     failure = X[Y == 0, index]
     t, p = ttest_ind(success, failure)
-    if p > 0.1 :
+    if p > 0.01 :
         return 0
     elif t < 0 :
         return -1
