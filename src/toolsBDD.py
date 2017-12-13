@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 ##permet de charger dans la base de donnee
 def init():
-    op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest, 3900)
+    op.BDDfromCSV(sys.argv[1], sys.argv[2], bdd.tableMovieTrain, bdd.tableMovieTest)
 
 ## permet de recuperer les infos pour ensemble de train
 #@return a,s,d les lignes de la base, le nombre et un dict

@@ -10,8 +10,7 @@ medianeVoteAverage = 6.2
 #@param csv_filenameCredit chemin du fichier des credits
 #@param tableTrain name table d'entrainement
 #@param tableTest name table de test
-#@param numberSeparation nombre ou la separation a lieu entre les deux tables
-def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, numberSeparation):
+def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest):
 	es = bdd.BDD.get_instance();
 	try :
 		es.indices.delete(index=bdd.index)
@@ -25,6 +24,8 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 		readerMovie = csv.DictReader(csvfileMovie)
 		readerCredit = csv.DictReader(csvfileCredit)
 		i = 2
+		train = 0
+		test = 0
 		for row, row2 in zip(readerMovie, readerCredit) :
 			try :
 				vote = float(row['vote_average'])
@@ -37,7 +38,7 @@ def BDDfromCSV(csv_filenameMovie, csv_filenameCredit, tableTrain, tableTest, num
 					row['vote_average'] = newVote
 					row['SUCCESS'] = newVote
 				rowTotal = {**row, **row2}
-				if(i%20!=0):
+				if(i%5!=0):
 					es.index(index=bdd.index, doc_type=tableTrain, body=rowTotal)
 				else:
 					es.index(index=bdd.index, doc_type=tableTest, body=rowTotal)
