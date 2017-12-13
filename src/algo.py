@@ -141,7 +141,10 @@ def generic_tree(X, y, cls, show=0):
             for train_idx, test_idx in skf.split(X_train, y_train):
                 X_sub_train, X_sub_test = X[train_idx], X[test_idx]
                 y_sub_train, y_sub_test = y[train_idx], y[test_idx]
-                model = cls(min_samples_split=min_samples_split, max_depth=max_depth)
+                if(cls==DecisionTreeClassifier):
+                    model = cls(min_samples_split=min_samples_split, max_depth=max_depth)
+                else:
+                    model = cls(min_samples_split=min_samples_split, max_depth=max_depth, n_jobs=-1, n_estimator=1000)
                 model.fit(X_sub_train, y_sub_train)
                 score = model.score(X_sub_test, y_sub_test)
                 score_sum += score
@@ -175,7 +178,10 @@ def generic_tree(X, y, cls, show=0):
 #
 def generic_tree_score(X, y, matt, vect, cls, show=0):
     best_min, best_max = generic_tree(X, y, cls, show)
-    m = cls(min_samples_split=best_min, max_depth=best_max)
+    if(cls==DecisionTreeClassifier):
+        m = cls(min_samples_split=best_min, max_depth=best_max)
+    else:
+        m = cls(min_samples_split=best_min, max_depth=best_max, n_jobs=-1, n_estimator=1000)
     m.fit(X, y)
     y_pred =m.predict(matt)
     print("Precision ", precision_score(vect, y_pred, average='macro')*100, "% et Recall", recall_score(vect, y_pred, average='macro')*100, "%")
